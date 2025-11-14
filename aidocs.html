@@ -12,45 +12,835 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown-light.css"
     />
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+          sans-serif;
+        background: #f8f9fa;
+        overflow: hidden;
+      }
+
+      .app-container {
+        display: flex;
+        height: 100vh;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 300px;
+        background: #fff;
+        border-right: 1px solid #e5e7eb;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .sidebar-header {
+        padding: 20px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .search-box {
+        width: 100%;
+        padding: 10px 14px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.2s;
+      }
+
+      .search-box:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      .sidebar-content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 12px;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        background: #f3f4f6;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+        color: #374151;
+        margin-bottom: 8px;
+        transition: all 0.2s;
+      }
+
+      .section-header:hover {
+        background: #e5e7eb;
+      }
+
+      .badge {
+        background: #3b82f6;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .topic-list {
+        list-style: none;
+        margin-bottom: 12px;
+      }
+
+      .topic-item {
+        padding: 10px 16px;
+        margin: 2px 0;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        color: #4b5563;
+        transition: all 0.15s;
+      }
+
+      .topic-item:hover {
+        background: #eff6ff;
+        color: #1e40af;
+      }
+
+      .topic-item.active {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 500;
+      }
+
+      .no-results {
+        padding: 20px;
+        text-align: center;
+        color: #9ca3af;
+        font-size: 14px;
+      }
+
+      /* Main Content */
+      .main-content {
+        flex: 1;
+        overflow-y: auto;
+        background: #fff;
+      }
+
+      .content-wrapper {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px;
+      }
+
+      .welcome-screen {
+        text-align: center;
+        padding: 60px 20px;
+        color: #6b7280;
+      }
+
+      .welcome-screen h2 {
+        font-size: 28px;
+        color: #111827;
+        margin-bottom: 12px;
+      }
+
+      .welcome-screen p {
+        font-size: 16px;
+      }
+
+      /* Markdown Styling */
+      .markdown-body {
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .markdown-body h1 {
+        font-size: 32px;
+        border-bottom: 2px solid #e5e7eb;
+        padding-bottom: 12px;
+        margin-bottom: 24px;
+      }
+
+      .markdown-body h2 {
+        font-size: 24px;
+        margin-top: 32px;
+        margin-bottom: 16px;
+        color: #1f2937;
+      }
+
+      .markdown-body h3 {
+        font-size: 20px;
+        margin-top: 24px;
+        margin-bottom: 12px;
+      }
+
+      .markdown-body code {
+        background: #f3f4f6;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .markdown-body ul,
+      .markdown-body ol {
+        margin-left: 24px;
+      }
+
+      .markdown-body li {
+        margin: 8px 0;
+      }
+
+      .error-message {
+        padding: 20px;
+        background: #fee;
+        color: #c00;
+        border-radius: 8px;
+        margin: 20px;
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #a1a1a1;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .sidebar {
+          width: 100%;
+          max-width: 300px;
+          position: absolute;
+          z-index: 1000;
+          transform: translateX(-100%);
+          transition: transform 0.3s;
+        }
+
+        .sidebar.open {
+          transform: translateX(0);
+        }
+
+        .content-wrapper {
+          padding: 20px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="d-flex">
+    <div class="app-container">
       <!-- Sidebar -->
-      <div class="sidebar p-3">
-        <div class="text-center mb-4">
+      <aside class="sidebar">
+        <div class="sidebar-header">
           <input
-            id="searchInput"
             type="text"
-            class="form-control search-bar"
+            class="search-box"
+            id="searchInput"
             placeholder="Search topics..."
+            autocomplete="off"
           />
         </div>
 
-        <div class="dropdown-section">
-          <button
-            class="btn w-100 d-flex justify-content-between align-items-center dropdown-toggle"
-            id="foundationBtn"
-            data-bs-toggle="collapse"
-            data-bs-target="#foundationList"
-            aria-expanded="false"
-          >
-            Mathematical Foundations <span class="badge bg-primary">9</span>
-          </button>
+        <div class="sidebar-content">
+          <!-- Mathematical Foundations -->
+          <div class="accordion" id="sidebarAccordion">
+            <div class="accordion-item border-0">
+              <h2 class="accordion-header" id="mathHeader">
+                <button
+                  class="accordion-button collapsed section-header"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#mathCollapse"
+                  aria-expanded="false"
+                  aria-controls="mathCollapse"
+                >
+                  <span>Mathematical Foundations</span>
+                  <span class="badge ms-2" id="mathCount">9</span>
+                </button>
+              </h2>
+              <div
+                id="mathCollapse"
+                class="accordion-collapse collapse"
+                aria-labelledby="mathHeader"
+                data-bs-parent="#sidebarAccordion"
+              >
+                <ul class="topic-list ms-3 mt-2" id="mathList"></ul>
+              </div>
+            </div>
 
-          <ul id="foundationList" class="list-group collapse mt-2"></ul>
+            <!-- Core AI Principles -->
+            <div class="accordion-item border-0">
+              <h2 class="accordion-header" id="aiHeader">
+                <button
+                  class="accordion-button collapsed section-header"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#aiCollapse"
+                  aria-expanded="false"
+                  aria-controls="aiCollapse"
+                >
+                  <span>Core AI Principles</span>
+                  <span class="badge ms-2" id="aiCount">6</span>
+                </button>
+              </h2>
+              <div
+                id="aiCollapse"
+                class="accordion-collapse collapse"
+                aria-labelledby="aiHeader"
+                data-bs-parent="#sidebarAccordion"
+              >
+                <ul class="topic-list ms-3 mt-2" id="aiList"></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="no-results" id="noResults" style="display: none">
+            No topics found
+          </div>
         </div>
-      </div>
+      </aside>
 
-      <!-- Content Area -->
-      <div id="docContainer" class="doc-container markdown-body p-4">
-        <h4>Welcome 👋</h4>
-        <p>Select a topic from the sidebar to view its documentation.</p>
-      </div>
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="content-wrapper">
+          <div id="docContainer">
+            <div class="welcome-screen">
+              <h2>Welcome to AI Docs 👋</h2>
+              <p>Select a topic from the sidebar to view documentation</p>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="main.js"></script>
+    <script>
+      // Embedded documentation content
+      const docs = {
+        // Mathematical Foundations
+        linear_algebra: `# Linear Algebra
+
+Linear Algebra is the study of vectors, vector spaces, and linear transformations — essential for ML models.
+
+## Key Concepts
+- **Vector**: An ordered list of numbers.
+- **Matrix**: A 2D array representing linear transformations.
+- **Eigenvalues & Eigenvectors**: Describe directions of stretching under transformation.
+- **Dot Product**: Measures similarity.
+- **Matrix Multiplication**: Composes transformations.
+
+## ML Applications
+- Representing datasets as matrices.
+- PCA for dimensionality reduction.
+- Neural network weight matrices.`,
+
+        probability_statistics: `# Probability & Statistics
+
+Provides tools for modeling uncertainty and variability in data.
+
+## Key Concepts
+- **Random Variable**: A variable with probabilistic outcomes.
+- **Expectation (E[X])**: Average value.
+- **Variance / Std Dev**: Measures spread.
+- **Bayes' Theorem**: Updates beliefs with new data.
+- **Distribution Types**: Normal, Bernoulli, Binomial, Poisson.
+
+## ML Applications
+- Bayesian inference.
+- Probabilistic models (Naive Bayes, HMMs).
+- Confidence intervals & hypothesis testing.`,
+
+        optimization: `# Optimization
+
+Optimization finds model parameters that minimize or maximize a given objective.
+
+## Types
+- **Convex**: One global minimum (e.g., linear regression).
+- **Non-convex**: Many local minima (e.g., deep networks).
+
+## Gradient Descent
+Iteratively update weights using gradients:
+
+w<sub>t+1</sub> = w<sub>t</sub> - η ∇L(w<sub>t</sub>)
+
+where η is the learning rate.
+
+## ML Applications
+- Training neural networks.
+- Hyperparameter tuning.`,
+
+        information_theory: `# Information Theory
+
+Quantifies information, uncertainty, and relationships between variables.
+
+## Core Ideas
+- **Entropy (H)**: Measure of uncertainty.
+- **KL Divergence**: Distance between probability distributions.
+- **Mutual Information**: Shared information between variables.
+
+## ML Applications
+- Decision trees (information gain).
+- Variational Autoencoders.
+- Regularization and compression.`,
+
+        numerical_methods: `# Numerical Methods
+
+Approximate solutions to mathematical problems that cannot be solved analytically.
+
+## Techniques
+- **Root Finding**: Newton-Raphson method.
+- **Integration**: Trapezoidal rule, Simpson's rule.
+- **Differentiation**: Finite differences.
+- **Linear Systems**: Gaussian elimination.
+
+## ML Applications
+- Gradient computation.
+- Solving optimization equations.
+- Numerical stability in training.`,
+
+        game_theory: `# Game Theory
+
+Studies interactions among rational agents with competing interests.
+
+## Concepts
+- **Nash Equilibrium**: No player benefits by changing strategy alone.
+- **Zero-sum Games**: One's gain equals another's loss.
+- **Payoff Matrix**: Represents strategies and outcomes.
+
+## ML Applications
+- GANs (Generator vs. Discriminator).
+- Multi-agent reinforcement learning.`,
+
+        graph_theory: `# Graph Theory
+
+Focuses on relationships represented as nodes and edges.
+
+## Basics
+- **Graph**: G = (V, E)
+- **Adjacency Matrix**: Encodes connections.
+- **Paths & Cycles**: Node sequences.
+- **Centrality**: Importance of nodes.
+
+## ML Applications
+- Graph Neural Networks (GNNs).
+- Social network analysis.
+- Knowledge graphs.`,
+
+        dynamical_systems: `# Dynamical Systems
+
+Describes how systems evolve over time using differential equations.
+
+## Key Concepts
+- **State Space**: All possible system states.
+- **Fixed Point**: System remains unchanged.
+- **Chaos**: Sensitive dependence on initial conditions.
+
+## ML Applications
+- Recurrent neural networks (RNNs).
+- Time-series forecasting.
+- Stability analysis.`,
+
+        control_theory: `# Control Theory
+
+Deals with influencing system behavior to reach desired outcomes.
+
+## Concepts
+- **Feedback Loop**: Adjusts system based on output.
+- **PID Controller**: Proportional, Integral, Derivative control.
+- **Stability**: System returns to equilibrium after disturbance.
+
+## ML Applications
+- Reinforcement learning (policy optimization).
+- Robotics (trajectory tracking).
+- Adaptive systems.`,
+
+        // Core AI Principles
+        intelligent_agents: `# Intelligent Agents
+
+An agent perceives its environment through sensors and acts upon it through actuators to achieve goals.
+
+## Agent Types
+- **Simple Reflex Agents**: React based on current percept.
+- **Model-Based Agents**: Maintain internal state of the world.
+- **Goal-Based Agents**: Act to achieve specific goals.
+- **Utility-Based Agents**: Maximize expected utility.
+- **Learning Agents**: Improve performance over time.
+
+## Properties
+- **Rationality**: Selecting actions that maximize expected performance.
+- **Autonomy**: Operating without direct human intervention.
+- **Reactivity**: Responding to changes in environment.
+- **Proactivity**: Taking initiative to achieve goals.
+
+## Applications
+- Autonomous vehicles.
+- Personal assistants (Siri, Alexa).
+- Game-playing AI (Chess, Go).
+- Robotic systems.`,
+
+        search_planning: `# Search & Planning
+
+Algorithms for finding solutions in problem spaces and planning sequences of actions.
+
+## Search Algorithms
+
+### Uninformed Search
+- **BFS (Breadth-First Search)**: Explores level by level, guarantees shortest path.
+- **DFS (Depth-First Search)**: Explores deeply before backtracking, memory efficient.
+- **Uniform Cost Search**: Expands least-cost node first.
+
+### Informed Search (Heuristic)
+- **A* Search**: Uses f(n) = g(n) + h(n) where:
+  - g(n) = cost from start to n
+  - h(n) = estimated cost from n to goal
+  - Optimal if h(n) is admissible (never overestimates)
+- **Greedy Best-First**: Expands node closest to goal.
+
+### Adversarial Search
+- **Minimax**: Assumes opponent plays optimally.
+- **Alpha-Beta Pruning**: Optimizes minimax by eliminating branches.
+- **MCTS (Monte Carlo Tree Search)**: Uses random simulations, effective for Go and complex games.
+
+## Planning
+- **STRIPS**: Classical planning representation.
+- **Hierarchical Task Networks (HTN)**: Decompose tasks into subtasks.
+- **Probabilistic Planning**: Handles uncertain outcomes.
+
+## Applications
+- Pathfinding in robotics and games.
+- Route optimization.
+- AlphaGo (MCTS + Deep Learning).
+- Automated scheduling.`,
+
+        csp: `# Constraint Satisfaction Problems (CSP)
+
+Problems where variables must satisfy constraints to find valid assignments.
+
+## Components
+- **Variables**: Set of items to assign values to.
+- **Domains**: Possible values for each variable.
+- **Constraints**: Rules that restrict variable combinations.
+
+## Types of Constraints
+- **Unary**: Constraint on single variable (X ≠ blue).
+- **Binary**: Between two variables (X ≠ Y).
+- **Global**: Involve multiple variables (AllDifferent).
+
+## Solution Techniques
+
+### Backtracking
+- Assign values incrementally.
+- Backtrack when constraint violated.
+
+### Constraint Propagation
+- **Forward Checking**: Remove inconsistent values from neighbors.
+- **Arc Consistency (AC-3)**: Ensure every value has supporting value in connected variables.
+
+### Heuristics
+- **Minimum Remaining Values (MRV)**: Choose variable with fewest legal values.
+- **Degree Heuristic**: Choose variable involved in most constraints.
+- **Least Constraining Value**: Prefer value that rules out fewest choices.
+
+## Applications
+- Sudoku solving.
+- Scheduling problems.
+- Map coloring.
+- Resource allocation.
+- Timetabling.`,
+
+        knowledge_representation: `# Knowledge Representation & Reasoning
+
+Structuring information so machines can reason about the world.
+
+## Representation Schemes
+
+### Semantic Networks
+- Nodes represent concepts, edges represent relationships.
+- Example: "Bird IS-A Animal", "Tweety IS-A Bird"
+
+### Frames
+- Structured representations with slots and values.
+- Supports inheritance and defaults.
+
+### Ontologies
+- Formal specification of concepts and relationships.
+- OWL (Web Ontology Language) for knowledge graphs.
+
+### Production Rules
+- IF-THEN rules: IF condition THEN action.
+- Used in expert systems.
+
+## Reasoning Types
+- **Deductive**: Derives specific conclusions from general principles.
+- **Inductive**: Generalizes from specific examples.
+- **Abductive**: Infers best explanation for observations.
+- **Analogical**: Draws parallels between situations.
+- **Common Sense**: Everyday reasoning about the world.
+
+## Challenges
+- **Frame Problem**: Representing what doesn't change.
+- **Qualification Problem**: Listing all preconditions.
+- **Ramification Problem**: Inferring indirect effects.
+
+## Applications
+- Expert systems (MYCIN for medical diagnosis).
+- Knowledge graphs (Google Knowledge Graph).
+- Question answering systems.
+- Semantic web.`,
+
+        logic: `# Logic
+
+Formal systems for representing and reasoning about knowledge.
+
+## Propositional Logic
+- Uses Boolean variables and connectives (∧, ∨, ¬, →, ↔).
+- **Syntax**: Well-formed formulas using symbols.
+- **Semantics**: Truth values in interpretations.
+- **Inference**: Modus Ponens, Resolution.
+- **Decidable**: Can always determine if formula is valid.
+
+### Limitations
+- Cannot express relations or quantify over objects.
+
+## Predicate (First-Order) Logic
+- Extends propositional logic with:
+  - **Variables**: x, y, z
+  - **Predicates**: Properties and relations, e.g., Loves(John, Mary)
+  - **Quantifiers**: ∀ (for all), ∃ (exists)
+  
+### Example
+∀x (Human(x) → Mortal(x))  
+Human(Socrates)  
+∴ Mortal(Socrates)
+
+- More expressive but **semi-decidable**.
+
+## Fuzzy Logic
+- Handles degrees of truth (values between 0 and 1).
+- **Membership Functions**: Define fuzzy sets (e.g., "tall").
+- **Operations**: Fuzzy AND (min), OR (max), NOT (1-x).
+- Used in control systems (washing machines, air conditioning).
+
+## Modal Logic
+- Extends logic with modalities:
+  - **Necessity (□)**: Must be true in all possible worlds.
+  - **Possibility (◇)**: True in at least one possible world.
+- **Epistemic Logic**: Reasoning about knowledge (K for "knows").
+- **Temporal Logic**: Reasoning about time (Always, Eventually).
+
+## Applications
+- Automated theorem proving.
+- Verification of software and hardware.
+- Natural language understanding.
+- AI planning and reasoning systems.`,
+
+        inference_engines: `# Inference Engines
+
+Systems that derive conclusions from a knowledge base using logical rules.
+
+## Components
+- **Knowledge Base (KB)**: Set of facts and rules.
+- **Inference Mechanism**: Reasoning procedure.
+- **Working Memory**: Current state and derived facts.
+
+## Inference Strategies
+
+### Forward Chaining (Data-Driven)
+- Start with known facts, apply rules to derive new facts.
+- Continues until goal is reached or no more rules apply.
+- **Sound** and **complete** for definite clauses.
+- Used when: Many facts, few goals.
+
+### Backward Chaining (Goal-Driven)
+- Start with goal, work backwards to find supporting facts.
+- Queries KB to satisfy preconditions.
+- More efficient for specific queries.
+- Used when: Few facts, specific goal.
+
+### Resolution
+- Refutation-based: Prove goal by showing ¬goal leads to contradiction.
+- **Steps**:
+  1. Convert KB and ¬goal to CNF (Conjunctive Normal Form).
+  2. Apply resolution rule to derive empty clause.
+- Complete for first-order logic.
+
+## Conflict Resolution
+When multiple rules can fire:
+- **Specificity**: Prefer more specific rules.
+- **Recency**: Prefer recently added facts.
+- **Priority**: User-assigned rule priorities.
+
+## Types of Systems
+
+### Expert Systems
+- MYCIN (medical diagnosis).
+- DENDRAL (chemical analysis).
+- Components: KB, inference engine, explanation facility.
+
+### Rule-Based Systems
+- Production systems with IF-THEN rules.
+- Rete algorithm for efficient pattern matching.
+
+### Description Logic Reasoners
+- Reason over ontologies.
+- Subsumption, classification, consistency checking.
+
+## Performance Optimization
+- **Indexing**: Fast lookup of relevant rules.
+- **Rete Algorithm**: Efficient pattern matching for production rules.
+- **Truth Maintenance**: Track dependencies between facts.
+
+## Applications
+- Expert systems for diagnosis and decision support.
+- Business rule engines.
+- Automated reasoning in AI.
+- Semantic web reasoners (Pellet, HermiT).`,
+      };
+
+      const topics = [
+        { name: "Linear Algebra", key: "linear_algebra", category: "math" },
+        {
+          name: "Probability & Statistics",
+          key: "probability_statistics",
+          category: "math",
+        },
+        { name: "Optimization", key: "optimization", category: "math" },
+        {
+          name: "Information Theory",
+          key: "information_theory",
+          category: "math",
+        },
+        {
+          name: "Numerical Methods",
+          key: "numerical_methods",
+          category: "math",
+        },
+        { name: "Game Theory", key: "game_theory", category: "math" },
+        { name: "Graph Theory", key: "graph_theory", category: "math" },
+        {
+          name: "Dynamical Systems",
+          key: "dynamical_systems",
+          category: "math",
+        },
+        { name: "Control Theory", key: "control_theory", category: "math" },
+        {
+          name: "Intelligent Agents",
+          key: "intelligent_agents",
+          category: "ai",
+        },
+        { name: "Search & Planning", key: "search_planning", category: "ai" },
+        {
+          name: "Constraint Satisfaction Problems",
+          key: "csp",
+          category: "ai",
+        },
+        {
+          name: "Knowledge Representation",
+          key: "knowledge_representation",
+          category: "ai",
+        },
+        { name: "Logic Systems", key: "logic", category: "ai" },
+        { name: "Inference Engines", key: "inference_engines", category: "ai" },
+      ];
+
+      const els = {
+        mathList: document.getElementById("mathList"),
+        aiList: document.getElementById("aiList"),
+        search: document.getElementById("searchInput"),
+        container: document.getElementById("docContainer"),
+        noResults: document.getElementById("noResults"),
+        mathCount: document.getElementById("mathCount"),
+        aiCount: document.getElementById("aiCount"),
+      };
+
+      let currentTopic = null;
+
+      // Render topics
+      function render(filtered = topics) {
+        els.mathList.innerHTML = "";
+        els.aiList.innerHTML = "";
+
+        const mathTopics = filtered.filter((t) => t.category === "math");
+        const aiTopics = filtered.filter((t) => t.category === "ai");
+
+        els.noResults.style.display = filtered.length ? "none" : "block";
+        els.mathCount.textContent = mathTopics.length;
+        els.aiCount.textContent = aiTopics.length;
+
+        mathTopics.forEach((topic) => {
+          const li = createTopicItem(topic);
+          els.mathList.appendChild(li);
+        });
+
+        aiTopics.forEach((topic) => {
+          const li = createTopicItem(topic);
+          els.aiList.appendChild(li);
+        });
+      }
+
+      function createTopicItem(topic) {
+        const li = document.createElement("li");
+        li.className = "topic-item";
+        li.textContent = topic.name;
+        li.onclick = () => load(topic);
+        if (currentTopic === topic.key) {
+          li.classList.add("active");
+        }
+        return li;
+      }
+
+      // Load and display documentation
+      function load(topic) {
+        currentTopic = topic.key;
+        render(
+          topics.filter((t) =>
+            t.name.toLowerCase().includes(els.search.value.toLowerCase())
+          )
+        );
+
+        const content = docs[topic.key];
+        if (content) {
+          els.container.innerHTML = marked.parse(content);
+          els.container.classList.add("markdown-body");
+        } else {
+          els.container.innerHTML =
+            '<div class="error-message">Documentation not found</div>';
+        }
+      }
+
+      // Search filter
+      els.search.addEventListener("input", (e) => {
+        const query = e.target.value.toLowerCase();
+        const filtered = topics.filter((t) =>
+          t.name.toLowerCase().includes(query)
+        );
+        render(filtered);
+      });
+
+      // Initialize
+      render();
+    </script>
   </body>
 </html>
