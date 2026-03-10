@@ -130,6 +130,99 @@ const SEO = {
   }
 };
 
+// ---- Analytics Tracker Module ----
+const Tracker = {
+  STORAGE_KEY: "aidocs-analytics",
+  _searchTimer: null,
+
+  _defaultData() {
+    return {
+      version: 1,
+      topicViews: {},
+      searches: { terms: {}, noResults: {} },
+      sessions: { total: 0, lastStart: null },
+      firstTracked: new Date().toISOString(),
+      lastUpdated: new Date().toISOString(),
+    };
+  },
+
+  _getData() {
+    try {
+      const raw = localStorage.getItem(this.STORAGE_KEY);
+      if (!raw) return this._defaultData();
+      const data = JSON.parse(raw);
+      if (!data.version) return this._defaultData();
+      return data;
+    } catch (e) {
+      return this._defaultData();
+    }
+  },
+
+  _saveData(data) {
+    try {
+      data.lastUpdated = new Date().toISOString();
+      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(data));
+    } catch (e) { /* localStorage full or unavailable */ }
+  },
+
+  trackTopicView(key) {
+    const data = this._getData();
+    if (!data.topicViews[key]) {
+      data.topicViews[key] = { count: 0, lastViewed: null };
+    }
+    data.topicViews[key].count++;
+    data.topicViews[key].lastViewed = new Date().toISOString();
+    this._saveData(data);
+  },
+
+  trackSearch(term, hasResults) {
+    if (!term || term.length < 3) return;
+    const data = this._getData();
+    const bucket = hasResults ? data.searches.terms : data.searches.noResults;
+    const normalized = term.toLowerCase().trim();
+    if (!bucket[normalized]) {
+      bucket[normalized] = { count: 0, lastSearched: null };
+    }
+    bucket[normalized].count++;
+    bucket[normalized].lastSearched = new Date().toISOString();
+    // Prune if too many unique terms (keep top 500)
+    const keys = Object.keys(bucket);
+    if (keys.length > 500) {
+      keys.sort((a, b) => bucket[a].count - bucket[b].count);
+      keys.slice(0, keys.length - 500).forEach((k) => delete bucket[k]);
+    }
+    this._saveData(data);
+  },
+
+  trackSearchDebounced(term, hasResults) {
+    clearTimeout(this._searchTimer);
+    this._searchTimer = setTimeout(() => {
+      this.trackSearch(term, hasResults);
+    }, 800);
+  },
+
+  trackSession() {
+    const data = this._getData();
+    const now = new Date();
+    const last = data.sessions.lastStart ? new Date(data.sessions.lastStart) : null;
+    // Only count new session if >30 min since last
+    if (!last || now - last > 30 * 60 * 1000) {
+      data.sessions.total++;
+      data.sessions.lastStart = now.toISOString();
+      if (!data.firstTracked) data.firstTracked = now.toISOString();
+      this._saveData(data);
+    }
+  },
+
+  getData() {
+    return this._getData();
+  },
+
+  clearData() {
+    localStorage.removeItem(this.STORAGE_KEY);
+  },
+};
+
 // ---- Topic Structure Definition ----
 const docStructure = [
   {
@@ -725,6 +818,7 @@ function renderSidebar(filter = "") {
 // ---- Load Topic ----
 function loadTopic(key, section, sub, name) {
   currentTopicKey = key;
+  Tracker.trackTopicView(key);
   const content = window.AI_DOCS[key];
 
   if (content) {
@@ -775,6 +869,12 @@ els.search.addEventListener("input", (e) => {
     });
   }
   renderSidebar(term);
+
+  // Track search analytics (debounced, 3+ char only)
+  if (term.length >= 3) {
+    const hasResults = !document.querySelector(".no-results");
+    Tracker.trackSearchDebounced(term, hasResults);
+  }
 });
 
 // ---- Theme Toggle ----
@@ -874,5 +974,6 @@ renderSidebar();
 renderWelcomeGrid();
 renderStats();
 SEO.resetToHome();
+Tracker.trackSession();
 loadFromHash();
 window.addEventListener("hashchange", loadFromHash);

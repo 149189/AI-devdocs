@@ -2,1081 +2,1081 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://ai-devdocs.example.com/</loc>
+    <loc>https://149189.github.io/AI-devdocs/</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#linear_algebra</loc>
+    <loc>https://149189.github.io/AI-devdocs/#linear_algebra</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#probability_statistics</loc>
+    <loc>https://149189.github.io/AI-devdocs/#probability_statistics</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#optimization</loc>
+    <loc>https://149189.github.io/AI-devdocs/#optimization</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#information_theory</loc>
+    <loc>https://149189.github.io/AI-devdocs/#information_theory</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#numerical_methods</loc>
+    <loc>https://149189.github.io/AI-devdocs/#numerical_methods</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#game_theory</loc>
+    <loc>https://149189.github.io/AI-devdocs/#game_theory</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#graph_theory</loc>
+    <loc>https://149189.github.io/AI-devdocs/#graph_theory</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#dynamical_systems</loc>
+    <loc>https://149189.github.io/AI-devdocs/#dynamical_systems</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#control_theory</loc>
+    <loc>https://149189.github.io/AI-devdocs/#control_theory</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#intelligent_agents</loc>
+    <loc>https://149189.github.io/AI-devdocs/#intelligent_agents</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#search_planning</loc>
+    <loc>https://149189.github.io/AI-devdocs/#search_planning</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#csp</loc>
+    <loc>https://149189.github.io/AI-devdocs/#csp</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#knowledge_representation</loc>
+    <loc>https://149189.github.io/AI-devdocs/#knowledge_representation</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#logic</loc>
+    <loc>https://149189.github.io/AI-devdocs/#logic</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#inference_engines</loc>
+    <loc>https://149189.github.io/AI-devdocs/#inference_engines</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#supervised_learning</loc>
+    <loc>https://149189.github.io/AI-devdocs/#supervised_learning</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#unsupervised_learning</loc>
+    <loc>https://149189.github.io/AI-devdocs/#unsupervised_learning</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#semi_supervised</loc>
+    <loc>https://149189.github.io/AI-devdocs/#semi_supervised</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#self_supervised</loc>
+    <loc>https://149189.github.io/AI-devdocs/#self_supervised</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#rl_intro</loc>
+    <loc>https://149189.github.io/AI-devdocs/#rl_intro</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#online_learning</loc>
+    <loc>https://149189.github.io/AI-devdocs/#online_learning</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#transfer_learning</loc>
+    <loc>https://149189.github.io/AI-devdocs/#transfer_learning</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#meta_learning</loc>
+    <loc>https://149189.github.io/AI-devdocs/#meta_learning</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#active_learning</loc>
+    <loc>https://149189.github.io/AI-devdocs/#active_learning</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#federated_learning</loc>
+    <loc>https://149189.github.io/AI-devdocs/#federated_learning</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#continual_learning</loc>
+    <loc>https://149189.github.io/AI-devdocs/#continual_learning</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#regression</loc>
+    <loc>https://149189.github.io/AI-devdocs/#regression</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#decision_trees</loc>
+    <loc>https://149189.github.io/AI-devdocs/#decision_trees</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#svm</loc>
+    <loc>https://149189.github.io/AI-devdocs/#svm</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#knn</loc>
+    <loc>https://149189.github.io/AI-devdocs/#knn</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#naive_bayes</loc>
+    <loc>https://149189.github.io/AI-devdocs/#naive_bayes</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#clustering</loc>
+    <loc>https://149189.github.io/AI-devdocs/#clustering</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#dim_reduction</loc>
+    <loc>https://149189.github.io/AI-devdocs/#dim_reduction</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#ensemble</loc>
+    <loc>https://149189.github.io/AI-devdocs/#ensemble</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#perceptrons</loc>
+    <loc>https://149189.github.io/AI-devdocs/#perceptrons</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#mlps</loc>
+    <loc>https://149189.github.io/AI-devdocs/#mlps</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#cnns</loc>
+    <loc>https://149189.github.io/AI-devdocs/#cnns</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#rnns</loc>
+    <loc>https://149189.github.io/AI-devdocs/#rnns</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#lstm_gru</loc>
+    <loc>https://149189.github.io/AI-devdocs/#lstm_gru</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#autoencoders</loc>
+    <loc>https://149189.github.io/AI-devdocs/#autoencoders</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#gnns</loc>
+    <loc>https://149189.github.io/AI-devdocs/#gnns</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#attention</loc>
+    <loc>https://149189.github.io/AI-devdocs/#attention</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#backprop</loc>
+    <loc>https://149189.github.io/AI-devdocs/#backprop</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#activations</loc>
+    <loc>https://149189.github.io/AI-devdocs/#activations</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#loss_functions</loc>
+    <loc>https://149189.github.io/AI-devdocs/#loss_functions</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#optimizers</loc>
+    <loc>https://149189.github.io/AI-devdocs/#optimizers</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#regularization</loc>
+    <loc>https://149189.github.io/AI-devdocs/#regularization</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#lr_scheduling</loc>
+    <loc>https://149189.github.io/AI-devdocs/#lr_scheduling</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#object_detection</loc>
+    <loc>https://149189.github.io/AI-devdocs/#object_detection</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#image_classification</loc>
+    <loc>https://149189.github.io/AI-devdocs/#image_classification</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#segmentation</loc>
+    <loc>https://149189.github.io/AI-devdocs/#segmentation</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#image_generation</loc>
+    <loc>https://149189.github.io/AI-devdocs/#image_generation</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#style_transfer</loc>
+    <loc>https://149189.github.io/AI-devdocs/#style_transfer</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#tokenization</loc>
+    <loc>https://149189.github.io/AI-devdocs/#tokenization</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#word_embeddings</loc>
+    <loc>https://149189.github.io/AI-devdocs/#word_embeddings</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#sequence_models</loc>
+    <loc>https://149189.github.io/AI-devdocs/#sequence_models</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#text_classification</loc>
+    <loc>https://149189.github.io/AI-devdocs/#text_classification</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#ner</loc>
+    <loc>https://149189.github.io/AI-devdocs/#ner</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#asr</loc>
+    <loc>https://149189.github.io/AI-devdocs/#asr</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#tts</loc>
+    <loc>https://149189.github.io/AI-devdocs/#tts</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#speaker_recognition</loc>
+    <loc>https://149189.github.io/AI-devdocs/#speaker_recognition</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#emotion_recognition</loc>
+    <loc>https://149189.github.io/AI-devdocs/#emotion_recognition</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#music_generation</loc>
+    <loc>https://149189.github.io/AI-devdocs/#music_generation</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#self_attention</loc>
+    <loc>https://149189.github.io/AI-devdocs/#self_attention</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#multi_head_attention</loc>
+    <loc>https://149189.github.io/AI-devdocs/#multi_head_attention</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#positional_encoding</loc>
+    <loc>https://149189.github.io/AI-devdocs/#positional_encoding</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#enc_dec</loc>
+    <loc>https://149189.github.io/AI-devdocs/#enc_dec</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#bert</loc>
+    <loc>https://149189.github.io/AI-devdocs/#bert</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#gpt_series</loc>
+    <loc>https://149189.github.io/AI-devdocs/#gpt_series</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#t5</loc>
+    <loc>https://149189.github.io/AI-devdocs/#t5</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#llama</loc>
+    <loc>https://149189.github.io/AI-devdocs/#llama</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#claude</loc>
+    <loc>https://149189.github.io/AI-devdocs/#claude</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#palm_gemini</loc>
+    <loc>https://149189.github.io/AI-devdocs/#palm_gemini</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#mistral</loc>
+    <loc>https://149189.github.io/AI-devdocs/#mistral</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#finetuning</loc>
+    <loc>https://149189.github.io/AI-devdocs/#finetuning</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#rlhf_technique</loc>
+    <loc>https://149189.github.io/AI-devdocs/#rlhf_technique</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#prompt_engineering</loc>
+    <loc>https://149189.github.io/AI-devdocs/#prompt_engineering</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#context_scaling</loc>
+    <loc>https://149189.github.io/AI-devdocs/#context_scaling</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#gans</loc>
+    <loc>https://149189.github.io/AI-devdocs/#gans</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#vaes</loc>
+    <loc>https://149189.github.io/AI-devdocs/#vaes</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#diffusion_models</loc>
+    <loc>https://149189.github.io/AI-devdocs/#diffusion_models</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#flow_models</loc>
+    <loc>https://149189.github.io/AI-devdocs/#flow_models</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#autoregressive</loc>
+    <loc>https://149189.github.io/AI-devdocs/#autoregressive</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#text_generation</loc>
+    <loc>https://149189.github.io/AI-devdocs/#text_generation</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#image_synthesis</loc>
+    <loc>https://149189.github.io/AI-devdocs/#image_synthesis</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#video_generation</loc>
+    <loc>https://149189.github.io/AI-devdocs/#video_generation</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#code_generation</loc>
+    <loc>https://149189.github.io/AI-devdocs/#code_generation</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#music_gen</loc>
+    <loc>https://149189.github.io/AI-devdocs/#music_gen</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#dalle_midjourney</loc>
+    <loc>https://149189.github.io/AI-devdocs/#dalle_midjourney</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#stable_diffusion</loc>
+    <loc>https://149189.github.io/AI-devdocs/#stable_diffusion</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#ai_art</loc>
+    <loc>https://149189.github.io/AI-devdocs/#ai_art</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#multimodal_gen</loc>
+    <loc>https://149189.github.io/AI-devdocs/#multimodal_gen</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#summarization</loc>
+    <loc>https://149189.github.io/AI-devdocs/#summarization</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#machine_translation</loc>
+    <loc>https://149189.github.io/AI-devdocs/#machine_translation</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#question_answering</loc>
+    <loc>https://149189.github.io/AI-devdocs/#question_answering</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#sentiment_analysis</loc>
+    <loc>https://149189.github.io/AI-devdocs/#sentiment_analysis</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#text_to_sql</loc>
+    <loc>https://149189.github.io/AI-devdocs/#text_to_sql</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#dialogue_systems</loc>
+    <loc>https://149189.github.io/AI-devdocs/#dialogue_systems</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#information_retrieval</loc>
+    <loc>https://149189.github.io/AI-devdocs/#information_retrieval</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#document_understanding</loc>
+    <loc>https://149189.github.io/AI-devdocs/#document_understanding</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#multilingual_nlp</loc>
+    <loc>https://149189.github.io/AI-devdocs/#multilingual_nlp</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#nlp_benchmarks</loc>
+    <loc>https://149189.github.io/AI-devdocs/#nlp_benchmarks</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#image_preprocessing</loc>
+    <loc>https://149189.github.io/AI-devdocs/#image_preprocessing</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#feature_extraction</loc>
+    <loc>https://149189.github.io/AI-devdocs/#feature_extraction</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#object_tracking</loc>
+    <loc>https://149189.github.io/AI-devdocs/#object_tracking</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#vision_3d</loc>
+    <loc>https://149189.github.io/AI-devdocs/#vision_3d</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#video_understanding</loc>
+    <loc>https://149189.github.io/AI-devdocs/#video_understanding</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#ocr</loc>
+    <loc>https://149189.github.io/AI-devdocs/#ocr</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#medical_imaging</loc>
+    <loc>https://149189.github.io/AI-devdocs/#medical_imaging</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#autonomous_vision</loc>
+    <loc>https://149189.github.io/AI-devdocs/#autonomous_vision</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#mdp</loc>
+    <loc>https://149189.github.io/AI-devdocs/#mdp</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#q_learning</loc>
+    <loc>https://149189.github.io/AI-devdocs/#q_learning</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#policy_gradients</loc>
+    <loc>https://149189.github.io/AI-devdocs/#policy_gradients</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#value_functions</loc>
+    <loc>https://149189.github.io/AI-devdocs/#value_functions</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#dqn</loc>
+    <loc>https://149189.github.io/AI-devdocs/#dqn</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#ppo</loc>
+    <loc>https://149189.github.io/AI-devdocs/#ppo</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#a3c</loc>
+    <loc>https://149189.github.io/AI-devdocs/#a3c</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#actor_critic</loc>
+    <loc>https://149189.github.io/AI-devdocs/#actor_critic</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#rlhf</loc>
+    <loc>https://149189.github.io/AI-devdocs/#rlhf</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#multi_agent_rl</loc>
+    <loc>https://149189.github.io/AI-devdocs/#multi_agent_rl</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#tensorflow</loc>
+    <loc>https://149189.github.io/AI-devdocs/#tensorflow</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#pytorch</loc>
+    <loc>https://149189.github.io/AI-devdocs/#pytorch</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#jax</loc>
+    <loc>https://149189.github.io/AI-devdocs/#jax</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#keras</loc>
+    <loc>https://149189.github.io/AI-devdocs/#keras</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#sklearn</loc>
+    <loc>https://149189.github.io/AI-devdocs/#sklearn</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#fastai</loc>
+    <loc>https://149189.github.io/AI-devdocs/#fastai</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#huggingface</loc>
+    <loc>https://149189.github.io/AI-devdocs/#huggingface</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#onnx</loc>
+    <loc>https://149189.github.io/AI-devdocs/#onnx</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#tensorrt</loc>
+    <loc>https://149189.github.io/AI-devdocs/#tensorrt</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#wandb</loc>
+    <loc>https://149189.github.io/AI-devdocs/#wandb</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#mlflow</loc>
+    <loc>https://149189.github.io/AI-devdocs/#mlflow</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#gradio_streamlit</loc>
+    <loc>https://149189.github.io/AI-devdocs/#gradio_streamlit</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#langchain_overview</loc>
+    <loc>https://149189.github.io/AI-devdocs/#langchain_overview</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#langgraph</loc>
+    <loc>https://149189.github.io/AI-devdocs/#langgraph</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#prompt_chains</loc>
+    <loc>https://149189.github.io/AI-devdocs/#prompt_chains</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#memory_systems</loc>
+    <loc>https://149189.github.io/AI-devdocs/#memory_systems</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#langsmith</loc>
+    <loc>https://149189.github.io/AI-devdocs/#langsmith</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#rag</loc>
+    <loc>https://149189.github.io/AI-devdocs/#rag</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#vector_databases</loc>
+    <loc>https://149189.github.io/AI-devdocs/#vector_databases</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#embeddings_search</loc>
+    <loc>https://149189.github.io/AI-devdocs/#embeddings_search</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#ai_agents</loc>
+    <loc>https://149189.github.io/AI-devdocs/#ai_agents</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#function_calling</loc>
+    <loc>https://149189.github.io/AI-devdocs/#function_calling</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#multi_agent_frameworks</loc>
+    <loc>https://149189.github.io/AI-devdocs/#multi_agent_frameworks</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#python_ai</loc>
+    <loc>https://149189.github.io/AI-devdocs/#python_ai</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#javascript_ai</loc>
+    <loc>https://149189.github.io/AI-devdocs/#javascript_ai</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#rust_ml</loc>
+    <loc>https://149189.github.io/AI-devdocs/#rust_ml</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#julia</loc>
+    <loc>https://149189.github.io/AI-devdocs/#julia</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#r_language</loc>
+    <loc>https://149189.github.io/AI-devdocs/#r_language</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#cpp_ml</loc>
+    <loc>https://149189.github.io/AI-devdocs/#cpp_ml</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#sql_data</loc>
+    <loc>https://149189.github.io/AI-devdocs/#sql_data</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#mojo</loc>
+    <loc>https://149189.github.io/AI-devdocs/#mojo</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#gpu_tpu</loc>
+    <loc>https://149189.github.io/AI-devdocs/#gpu_tpu</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#model_serving</loc>
+    <loc>https://149189.github.io/AI-devdocs/#model_serving</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#docker_k8s</loc>
+    <loc>https://149189.github.io/AI-devdocs/#docker_k8s</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#cicd_ml</loc>
+    <loc>https://149189.github.io/AI-devdocs/#cicd_ml</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#distributed_training</loc>
+    <loc>https://149189.github.io/AI-devdocs/#distributed_training</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#data_pipelines</loc>
+    <loc>https://149189.github.io/AI-devdocs/#data_pipelines</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#model_monitoring</loc>
+    <loc>https://149189.github.io/AI-devdocs/#model_monitoring</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#edge_ai</loc>
+    <loc>https://149189.github.io/AI-devdocs/#edge_ai</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#cloud_ai</loc>
+    <loc>https://149189.github.io/AI-devdocs/#cloud_ai</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#model_compression</loc>
+    <loc>https://149189.github.io/AI-devdocs/#model_compression</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#bias_fairness</loc>
+    <loc>https://149189.github.io/AI-devdocs/#bias_fairness</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#xai</loc>
+    <loc>https://149189.github.io/AI-devdocs/#xai</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#ai_safety</loc>
+    <loc>https://149189.github.io/AI-devdocs/#ai_safety</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#data_privacy</loc>
+    <loc>https://149189.github.io/AI-devdocs/#data_privacy</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#responsible_ai</loc>
+    <loc>https://149189.github.io/AI-devdocs/#responsible_ai</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#ai_regulation</loc>
+    <loc>https://149189.github.io/AI-devdocs/#ai_regulation</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#deepfakes</loc>
+    <loc>https://149189.github.io/AI-devdocs/#deepfakes</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#environmental_impact</loc>
+    <loc>https://149189.github.io/AI-devdocs/#environmental_impact</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#quantum_ml</loc>
+    <loc>https://149189.github.io/AI-devdocs/#quantum_ml</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#neuromorphic</loc>
+    <loc>https://149189.github.io/AI-devdocs/#neuromorphic</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#foundation_models</loc>
+    <loc>https://149189.github.io/AI-devdocs/#foundation_models</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#multimodal_ai</loc>
+    <loc>https://149189.github.io/AI-devdocs/#multimodal_ai</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#world_models</loc>
+    <loc>https://149189.github.io/AI-devdocs/#world_models</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#ai_science</loc>
+    <loc>https://149189.github.io/AI-devdocs/#ai_science</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#robotics_ai</loc>
+    <loc>https://149189.github.io/AI-devdocs/#robotics_ai</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#bci</loc>
+    <loc>https://149189.github.io/AI-devdocs/#bci</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#agi</loc>
+    <loc>https://149189.github.io/AI-devdocs/#agi</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-devdocs.example.com/#ai_blockchain</loc>
+    <loc>https://149189.github.io/AI-devdocs/#ai_blockchain</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

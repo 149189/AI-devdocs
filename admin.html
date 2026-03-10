@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI DevDocs - Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* ========== Admin Dashboard Styles ========== */
+      body {
+        overflow: auto;
+        min-height: 100vh;
+      }
+
+      .admin-login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: var(--bg-secondary);
+      }
+
+      .login-card {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 40px;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: var(--shadow);
+      }
+
+      .login-card h2 {
+        margin-bottom: 8px;
+        color: var(--text-primary);
+        font-weight: 700;
+      }
+
+      .login-card .subtitle {
+        color: var(--text-muted);
+        margin-bottom: 24px;
+        font-size: 14px;
+      }
+
+      .login-card input[type="password"] {
+        width: 100%;
+        padding: 10px 14px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        font-size: 15px;
+        margin-bottom: 16px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+
+      .login-card input[type="password"]:focus {
+        border-color: var(--accent);
+      }
+
+      .login-card .btn-login {
+        width: 100%;
+        padding: 10px;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.2s;
+      }
+
+      .login-card .btn-login:hover {
+        opacity: 0.9;
+      }
+
+      .login-error {
+        color: #ef4444;
+        font-size: 13px;
+        margin-bottom: 12px;
+        display: none;
+      }
+
+      /* ---- Dashboard Shell ---- */
+      .admin-dashboard {
+        display: none;
+        min-height: 100vh;
+        background: var(--bg-secondary);
+      }
+
+      .admin-header {
+        background: var(--bg-primary);
+        border-bottom: 1px solid var(--border-color);
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .admin-header h1 {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0;
+        white-space: nowrap;
+      }
+
+      .admin-header .spacer {
+        flex: 1;
+      }
+
+      .admin-header .header-btn {
+        padding: 6px 14px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        font-size: 13px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+
+      .admin-header .header-btn:hover {
+        background: var(--bg-hover);
+      }
+
+      .admin-header .theme-toggle-btn {
+        font-size: 18px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--bg-secondary);
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .admin-header .theme-toggle-btn:hover {
+        background: var(--bg-hover);
+      }
+
+      /* ---- Tabs ---- */
+      .admin-tabs {
+        display: flex;
+        gap: 4px;
+        padding: 12px 24px;
+        background: var(--bg-primary);
+        border-bottom: 1px solid var(--border-color);
+        overflow-x: auto;
+        flex-wrap: nowrap;
+      }
+
+      .admin-tabs .tab-btn {
+        padding: 8px 18px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background: var(--bg-secondary);
+        color: var(--text-secondary);
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.2s;
+      }
+
+      .admin-tabs .tab-btn:hover {
+        background: var(--bg-hover);
+        color: var(--text-primary);
+      }
+
+      .admin-tabs .tab-btn.active {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+      }
+
+      /* ---- Content Area ---- */
+      .admin-content {
+        padding: 24px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      /* ---- Stat Cards ---- */
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .stat-card {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: var(--shadow);
+      }
+
+      .stat-card .stat-number {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--accent);
+        line-height: 1.2;
+      }
+
+      .stat-card .stat-label {
+        font-size: 13px;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+
+      /* ---- Sections ---- */
+      .admin-section {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .admin-section h3 {
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 16px;
+      }
+
+      .admin-section h4 {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+        margin-top: 20px;
+      }
+
+      /* ---- Progress Bars ---- */
+      .progress-track {
+        background: var(--bg-section);
+        border-radius: 6px;
+        height: 10px;
+        overflow: hidden;
+        margin-top: 6px;
+      }
+
+      .progress-fill {
+        background: var(--accent);
+        height: 100%;
+        border-radius: 6px;
+        transition: width 0.4s ease;
+      }
+
+      .progress-fill.warning {
+        background: #f59e0b;
+      }
+
+      .progress-fill.danger {
+        background: #ef4444;
+      }
+
+      /* ---- Coverage Section ---- */
+      .coverage-section {
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        margin-bottom: 12px;
+        overflow: hidden;
+      }
+
+      .coverage-section-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--bg-secondary);
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .coverage-section-header:hover {
+        background: var(--bg-hover);
+      }
+
+      .coverage-section-header .section-name {
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--text-primary);
+        flex: 1;
+      }
+
+      .coverage-section-header .section-stats {
+        font-size: 13px;
+        color: var(--text-muted);
+        white-space: nowrap;
+      }
+
+      .coverage-section-header .section-pct {
+        font-weight: 600;
+        font-size: 13px;
+        min-width: 45px;
+        text-align: right;
+      }
+
+      .coverage-section-header .arrow-indicator {
+        font-size: 10px;
+        color: var(--text-muted);
+        transition: transform 0.2s;
+      }
+
+      .coverage-section-header .arrow-indicator.open {
+        transform: rotate(90deg);
+      }
+
+      .coverage-section-body {
+        display: none;
+        padding: 8px 16px 12px;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .coverage-section-body.open {
+        display: block;
+      }
+
+      .coverage-topic {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 0;
+        font-size: 13px;
+        color: var(--text-secondary);
+      }
+
+      .coverage-topic .status-icon {
+        font-size: 14px;
+      }
+
+      /* ---- Tables ---- */
+      .admin-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+      }
+
+      .admin-table th {
+        text-align: left;
+        padding: 10px 12px;
+        background: var(--bg-secondary);
+        color: var(--text-muted);
+        font-weight: 600;
+        border-bottom: 2px solid var(--border-color);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .admin-table td {
+        padding: 9px 12px;
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+
+      .admin-table tbody tr:hover {
+        background: var(--bg-hover);
+      }
+
+      .admin-table .bar-cell {
+        width: 30%;
+      }
+
+      .view-bar {
+        height: 8px;
+        background: var(--accent);
+        border-radius: 4px;
+        min-width: 2px;
+      }
+
+      /* ---- Badges ---- */
+      .badge-pass {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        background: #dcfce7;
+        color: #166534;
+      }
+
+      .badge-fail {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        background: #fecaca;
+        color: #991b1b;
+      }
+
+      .badge-warn {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      [data-theme="dark"] .badge-pass {
+        background: #064e3b;
+        color: #6ee7b7;
+      }
+
+      [data-theme="dark"] .badge-fail {
+        background: #7f1d1d;
+        color: #fca5a5;
+      }
+
+      [data-theme="dark"] .badge-warn {
+        background: #78350f;
+        color: #fcd34d;
+      }
+
+      /* ---- Checklist ---- */
+      .checklist-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 14px;
+        color: var(--text-secondary);
+      }
+
+      .checklist-item:last-child {
+        border-bottom: none;
+      }
+
+      .checklist-item .check-icon {
+        font-size: 16px;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      .checklist-item .check-label {
+        flex: 1;
+      }
+
+      .checklist-item .check-detail {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-top: 2px;
+      }
+
+      /* ---- Buttons ---- */
+      .btn-admin {
+        padding: 7px 16px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        font-size: 13px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .btn-admin:hover {
+        background: var(--bg-hover);
+      }
+
+      .btn-admin.btn-accent {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+      }
+
+      .btn-admin.btn-accent:hover {
+        opacity: 0.9;
+      }
+
+      .btn-admin.btn-danger {
+        background: #ef4444;
+        color: #fff;
+        border-color: #ef4444;
+      }
+
+      .btn-admin.btn-danger:hover {
+        background: #dc2626;
+      }
+
+      /* ---- Alert Boxes ---- */
+      .admin-alert {
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+
+      .admin-alert.info {
+        background: var(--bg-section);
+        border: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+
+      .admin-alert.success {
+        background: #dcfce7;
+        border: 1px solid #86efac;
+        color: #166534;
+      }
+
+      .admin-alert.warning {
+        background: #fef3c7;
+        border: 1px solid #fcd34d;
+        color: #92400e;
+      }
+
+      .admin-alert.danger {
+        background: #fecaca;
+        border: 1px solid #fca5a5;
+        color: #991b1b;
+      }
+
+      [data-theme="dark"] .admin-alert.success {
+        background: #064e3b;
+        border-color: #065f46;
+        color: #6ee7b7;
+      }
+
+      [data-theme="dark"] .admin-alert.warning {
+        background: #78350f;
+        border-color: #92400e;
+        color: #fcd34d;
+      }
+
+      [data-theme="dark"] .admin-alert.danger {
+        background: #7f1d1d;
+        border-color: #991b1b;
+        color: #fca5a5;
+      }
+
+      /* ---- Score Display ---- */
+      .score-display {
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .score-display .score-number {
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      .score-display .score-label {
+        font-size: 15px;
+        color: var(--text-muted);
+      }
+
+      /* ---- Empty state ---- */
+      .empty-state {
+        text-align: center;
+        padding: 40px 20px;
+        color: var(--text-muted);
+      }
+
+      .empty-state .empty-icon {
+        font-size: 40px;
+        margin-bottom: 12px;
+        opacity: 0.5;
+      }
+
+      /* ---- Responsive ---- */
+      @media (max-width: 768px) {
+        .admin-header {
+          padding: 12px 16px;
+        }
+
+        .admin-tabs {
+          padding: 10px 16px;
+        }
+
+        .admin-content {
+          padding: 16px;
+        }
+
+        .stat-grid {
+          grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        }
+
+        .admin-header h1 {
+          font-size: 17px;
+        }
+      }
+
+      /* ---- Loading spinner ---- */
+      .loading-spinner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 20px;
+        color: var(--text-muted);
+        gap: 10px;
+      }
+
+      .loading-spinner::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--border-color);
+        border-top-color: var(--accent);
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      /* ---- Word count flags ---- */
+      .wc-flag {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .wc-flag.low {
+        background: #fecaca;
+        color: #991b1b;
+      }
+
+      .wc-flag.ok {
+        background: #dcfce7;
+        color: #166534;
+      }
+
+      [data-theme="dark"] .wc-flag.low {
+        background: #7f1d1d;
+        color: #fca5a5;
+      }
+
+      [data-theme="dark"] .wc-flag.ok {
+        background: #064e3b;
+        color: #6ee7b7;
+      }
+
+      /* Hide the main site layout elements */
+      .app-container,
+      .mobile-header {
+        display: none !important;
+      }
+    </style>
+
+    <!-- Initialize global content store BEFORE content files load -->
+    <script>window.AI_DOCS = {};</script>
+  </head>
+  <body>
+    <!-- Login Screen -->
+    <div class="admin-login" id="loginScreen">
+      <div class="login-card">
+        <h2>AI DevDocs Admin</h2>
+        <p class="subtitle">Enter password to access the dashboard</p>
+        <div class="login-error" id="loginError">Incorrect password. Please try again.</div>
+        <input type="password" id="passwordInput" placeholder="Password" autocomplete="off" />
+        <button class="btn-login" id="loginBtn">Log In</button>
+      </div>
+    </div>
+
+    <!-- Dashboard (hidden until login) -->
+    <div class="admin-dashboard" id="dashboard">
+      <!-- Header -->
+      <div class="admin-header">
+        <h1>AI DevDocs Admin</h1>
+        <div class="spacer"></div>
+        <button class="theme-toggle-btn" id="themeToggleAdmin" title="Toggle theme">
+          <span id="themeIcon">&#9790;</span>
+        </button>
+        <a href="index.html" class="header-btn">Back to Site</a>
+        <button class="header-btn" id="logoutBtn">Logout</button>
+      </div>
+
+      <!-- Tabs -->
+      <div class="admin-tabs" id="tabBar">
+        <button class="tab-btn active" data-tab="overview">Overview</button>
+        <button class="tab-btn" data-tab="coverage">Content Coverage</button>
+        <button class="tab-btn" data-tab="popularity">Topic Popularity</button>
+        <button class="tab-btn" data-tab="search">Search Analytics</button>
+        <button class="tab-btn" data-tab="seo">SEO Health</button>
+        <button class="tab-btn" data-tab="adsense">AdSense Readiness</button>
+      </div>
+
+      <!-- Content Area -->
+      <div class="admin-content" id="tabContent">
+        <div class="loading-spinner">Loading dashboard data...</div>
+      </div>
+    </div>
+
+    <!-- Content Files -->
+    <script src="content/01-foundations.js"></script>
+    <script src="content/02-machine-learning.js"></script>
+    <script src="content/03-neural-networks.js"></script>
+    <script src="content/04-deep-learning.js"></script>
+    <script src="content/05-transformers-llms.js"></script>
+    <script src="content/06-generative-ai.js"></script>
+    <script src="content/07-nlp-advanced.js"></script>
+    <script src="content/08-computer-vision.js"></script>
+    <script src="content/09-reinforcement.js"></script>
+    <script src="content/10-frameworks.js"></script>
+    <script src="content/11-langchain-agents.js"></script>
+    <script src="content/12-languages.js"></script>
+    <script src="content/13-mlops-infra.js"></script>
+    <script src="content/14-ethics.js"></script>
+    <script src="content/15-emerging.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    // ============================================================
+    // AI DevDocs Admin Dashboard
+    // ============================================================
+
+    (function() {
+      'use strict';
+
+      // ---- Constants ----
+      const PASSWORD_HASH = '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9';
+      const SESSION_KEY = 'aidocs-admin-session';
+      const ANALYTICS_KEY = 'aidocs-analytics';
+      const THEME_KEY = 'ai-docs-theme';
+
+      // ---- State ----
+      let docStructure = null;
+      let seoSectionKeywords = null;
+      let appJsText = null;
+      let currentTab = 'overview';
+
+      // ---- DOM Refs ----
+      const loginScreen = document.getElementById('loginScreen');
+      const dashboard = document.getElementById('dashboard');
+      const passwordInput = document.getElementById('passwordInput');
+      const loginBtn = document.getElementById('loginBtn');
+      const loginError = document.getElementById('loginError');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const tabBar = document.getElementById('tabBar');
+      const tabContent = document.getElementById('tabContent');
+      const themeToggleAdmin = document.getElementById('themeToggleAdmin');
+      const themeIcon = document.getElementById('themeIcon');
+
+      // ---- Utility: SHA-256 Hash ----
+      async function sha256(message) {
+        const msgBuffer = new TextEncoder().encode(message);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      }
+
+      // ---- Utility: Format Date ----
+      function formatDate(isoStr) {
+        if (!isoStr) return 'N/A';
+        try {
+          const d = new Date(isoStr);
+          if (isNaN(d.getTime())) return 'N/A';
+          return d.toLocaleDateString('en-US', {
+            month: 'short', day: 'numeric', year: 'numeric',
+            hour: 'numeric', minute: '2-digit', hour12: true
+          });
+        } catch {
+          return 'N/A';
+        }
+      }
+
+      // ---- Utility: Word Count ----
+      function getWordCount(markdown) {
+        if (!markdown) return 0;
+        return markdown
+          .replace(/```[\s\S]*?```/g, '')
+          .replace(/`[^`]+`/g, '')
+          .replace(/[#*_\[\]()>|~-]/g, '')
+          .replace(/\s+/g, ' ')
+          .trim()
+          .split(' ')
+          .filter(w => w.length > 0).length;
+      }
+
+      // ---- Utility: Get all topics from docStructure ----
+      function getAllTopics() {
+        if (!docStructure) return [];
+        const topics = [];
+        docStructure.forEach(section => {
+          section.sub.forEach(sub => {
+            sub.items.forEach(item => {
+              topics.push({
+                key: item.key,
+                name: item.name,
+                sectionTitle: section.title,
+                sectionId: section.id,
+                subTitle: sub.title
+              });
+            });
+          });
+        });
+        return topics;
+      }
+
+      // ---- Utility: Count topics per section ----
+      function countSectionTopics(section) {
+        let total = 0;
+        section.sub.forEach(sub => total += sub.items.length);
+        return total;
+      }
+
+      // ---- Utility: Get analytics data ----
+      function getAnalytics() {
+        try {
+          const raw = localStorage.getItem(ANALYTICS_KEY);
+          if (!raw) return null;
+          return JSON.parse(raw);
+        } catch {
+          return null;
+        }
+      }
+
+      // ---- Utility: Escape HTML ----
+      function esc(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      // ---- Theme ----
+      function initTheme() {
+        const saved = localStorage.getItem(THEME_KEY);
+        if (saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          themeIcon.innerHTML = '&#9728;';
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+          themeIcon.innerHTML = '&#9790;';
+        }
+      }
+
+      function toggleTheme() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem(THEME_KEY, 'light');
+          themeIcon.innerHTML = '&#9790;';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem(THEME_KEY, 'dark');
+          themeIcon.innerHTML = '&#9728;';
+        }
+      }
+
+      themeToggleAdmin.addEventListener('click', toggleTheme);
+
+      // ---- Authentication ----
+      async function authenticate(password) {
+        const hash = await sha256(password);
+        if (hash === PASSWORD_HASH) {
+          sessionStorage.setItem(SESSION_KEY, hash);
+          showDashboard();
+          return true;
+        }
+        return false;
+      }
+
+      function isAuthenticated() {
+        return sessionStorage.getItem(SESSION_KEY) === PASSWORD_HASH;
+      }
+
+      function logout() {
+        sessionStorage.removeItem(SESSION_KEY);
+        loginScreen.style.display = 'flex';
+        dashboard.style.display = 'none';
+        passwordInput.value = '';
+        loginError.style.display = 'none';
+      }
+
+      loginBtn.addEventListener('click', async () => {
+        const pw = passwordInput.value;
+        if (!pw) return;
+        const ok = await authenticate(pw);
+        if (!ok) {
+          loginError.style.display = 'block';
+          passwordInput.value = '';
+          passwordInput.focus();
+        }
+      });
+
+      passwordInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') loginBtn.click();
+      });
+
+      logoutBtn.addEventListener('click', logout);
+
+      // ---- Extract docStructure from app.js ----
+      async function loadDocStructure() {
+        try {
+          const resp = await fetch('app.js');
+          appJsText = await resp.text();
+
+          // Extract docStructure array
+          const startMarker = 'const docStructure = [';
+          const startIdx = appJsText.indexOf(startMarker);
+          if (startIdx === -1) throw new Error('docStructure not found');
+
+          let bracketCount = 0;
+          let endIdx = -1;
+          const searchStart = startIdx + startMarker.length - 1; // position of '['
+          for (let i = searchStart; i < appJsText.length; i++) {
+            if (appJsText[i] === '[') bracketCount++;
+            else if (appJsText[i] === ']') {
+              bracketCount--;
+              if (bracketCount === 0) {
+                endIdx = i + 1;
+                break;
+              }
+            }
+          }
+
+          if (endIdx === -1) throw new Error('Could not find matching bracket for docStructure');
+
+          const arrayStr = appJsText.substring(searchStart, endIdx);
+          docStructure = eval('(' + arrayStr + ')');
+
+          // Extract sectionKeywords
+          const kwStart = appJsText.indexOf('sectionKeywords:');
+          if (kwStart !== -1) {
+            let braceCount = 0;
+            let kwObjStart = -1;
+            let kwObjEnd = -1;
+            for (let i = kwStart; i < appJsText.length; i++) {
+              if (appJsText[i] === '{') {
+                if (braceCount === 0) kwObjStart = i;
+                braceCount++;
+              } else if (appJsText[i] === '}') {
+                braceCount--;
+                if (braceCount === 0) {
+                  kwObjEnd = i + 1;
+                  break;
+                }
+              }
+            }
+            if (kwObjStart !== -1 && kwObjEnd !== -1) {
+              const kwStr = appJsText.substring(kwObjStart, kwObjEnd);
+              seoSectionKeywords = eval('(' + kwStr + ')');
+            }
+          }
+        } catch (e) {
+          console.error('Failed to load docStructure:', e);
+          docStructure = [];
+          seoSectionKeywords = {};
+        }
+      }
+
+      // ---- Show Dashboard ----
+      async function showDashboard() {
+        loginScreen.style.display = 'none';
+        dashboard.style.display = 'block';
+
+        if (!docStructure) {
+          await loadDocStructure();
+        }
+
+        renderCurrentTab();
+      }
+
+      // ---- Tab Navigation ----
+      tabBar.addEventListener('click', (e) => {
+        const btn = e.target.closest('.tab-btn');
+        if (!btn) return;
+        tabBar.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentTab = btn.dataset.tab;
+        renderCurrentTab();
+      });
+
+      function renderCurrentTab() {
+        switch (currentTab) {
+          case 'overview': renderOverview(); break;
+          case 'coverage': renderCoverage(); break;
+          case 'popularity': renderPopularity(); break;
+          case 'search': renderSearchAnalytics(); break;
+          case 'seo': renderSEOHealth(); break;
+          case 'adsense': renderAdSense(); break;
+        }
+      }
+
+      // ============================================================
+      // TAB 1: Overview
+      // ============================================================
+      function renderOverview() {
+        const topics = getAllTopics();
+        const totalTopics = topics.length;
+        const totalSections = docStructure ? docStructure.length : 0;
+        const contentKeys = Object.keys(window.AI_DOCS || {});
+        const coveredCount = contentKeys.length;
+        const coveragePct = totalTopics > 0 ? ((coveredCount / totalTopics) * 100).toFixed(1) : 0;
+
+        // Total words
+        let totalWords = 0;
+        contentKeys.forEach(key => {
+          totalWords += getWordCount(window.AI_DOCS[key]);
+        });
+
+        // Analytics
+        const analytics = getAnalytics();
+        const totalSessions = analytics ? (analytics.sessions?.total || 0) : 0;
+        const topicViews = analytics ? (analytics.topicViews || {}) : {};
+        const viewedTopics = Object.keys(topicViews).filter(k => topicViews[k].count > 0).length;
+        const totalPageViews = Object.values(topicViews).reduce((sum, v) => sum + (v.count || 0), 0);
+        const firstTracked = analytics ? analytics.firstTracked : null;
+
+        tabContent.innerHTML = `
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="stat-number">${totalTopics}</div>
+              <div class="stat-label">Total Topics</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">${totalSections}</div>
+              <div class="stat-label">Total Sections</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">${coveragePct}%</div>
+              <div class="stat-label">Content Coverage</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">${totalWords.toLocaleString()}</div>
+              <div class="stat-label">Total Words</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">${totalSessions}</div>
+              <div class="stat-label">Total Sessions</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">${viewedTopics}</div>
+              <div class="stat-label">Topics Viewed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">${totalPageViews.toLocaleString()}</div>
+              <div class="stat-label">Total Page Views</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" style="font-size:18px;">${firstTracked ? formatDate(firstTracked) : 'N/A'}</div>
+              <div class="stat-label">Tracking Since</div>
+            </div>
+          </div>
+
+          <div class="admin-section">
+            <h3>Quick Summary</h3>
+            <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">
+              The AI DevDocs knowledge base contains <strong>${totalTopics}</strong> topics across
+              <strong>${totalSections}</strong> sections.
+              <strong>${coveredCount}</strong> topics have written content
+              (${coveragePct}% coverage) totaling <strong>${totalWords.toLocaleString()}</strong> words.
+              ${totalSessions > 0 ? `There have been <strong>${totalSessions}</strong> tracked sessions with <strong>${totalPageViews.toLocaleString()}</strong> total page views.` : 'No analytics data has been recorded yet.'}
+            </p>
+          </div>
+        `;
+      }
+
+      // ============================================================
+      // TAB 2: Content Coverage
+      // ============================================================
+      function renderCoverage() {
+        if (!docStructure) {
+          tabContent.innerHTML = '<div class="loading-spinner">Loading...</div>';
+          return;
+        }
+
+        const allTopics = getAllTopics();
+        const coveredTotal = allTopics.filter(t => window.AI_DOCS[t.key]).length;
+
+        let html = `
+          <div class="admin-alert info">
+            <strong>${coveredTotal} of ${allTopics.length}</strong> topics have content
+            (${allTopics.length > 0 ? ((coveredTotal / allTopics.length) * 100).toFixed(1) : 0}% coverage)
+          </div>
+        `;
+
+        docStructure.forEach((section, sIdx) => {
+          const sectionTopics = [];
+          section.sub.forEach(sub => {
+            sub.items.forEach(item => {
+              sectionTopics.push(item);
+            });
+          });
+
+          const covered = sectionTopics.filter(t => window.AI_DOCS[t.key]).length;
+          const total = sectionTopics.length;
+          const pct = total > 0 ? Math.round((covered / total) * 100) : 0;
+
+          let pctColor = 'var(--accent)';
+          let pctClass = '';
+          if (pct < 30) { pctColor = '#ef4444'; pctClass = 'danger'; }
+          else if (pct < 70) { pctColor = '#f59e0b'; pctClass = 'warning'; }
+
+          html += `
+            <div class="coverage-section">
+              <div class="coverage-section-header" onclick="toggleCoverageSection(${sIdx})">
+                <span class="arrow-indicator" id="covArrow${sIdx}">&#9654;</span>
+                <span class="section-name">${esc(section.icon)}. ${esc(section.title)}</span>
+                <span class="section-stats">${covered}/${total}</span>
+                <span class="section-pct" style="color:${pctColor}">${pct}%</span>
+              </div>
+              <div style="padding: 0 16px 4px;">
+                <div class="progress-track">
+                  <div class="progress-fill ${pctClass}" style="width:${pct}%"></div>
+                </div>
+              </div>
+              <div class="coverage-section-body" id="covBody${sIdx}">
+          `;
+
+          section.sub.forEach(sub => {
+            html += `<div style="margin-top: 8px; margin-bottom: 4px; font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">${esc(sub.title)}</div>`;
+            sub.items.forEach(item => {
+              const has = !!window.AI_DOCS[item.key];
+              html += `
+                <div class="coverage-topic">
+                  <span class="status-icon">${has ? '&#9989;' : '&#10060;'}</span>
+                  <span>${esc(item.name)}</span>
+                </div>
+              `;
+            });
+          });
+
+          html += `
+              </div>
+            </div>
+          `;
+        });
+
+        tabContent.innerHTML = html;
+      }
+
+      // Toggle coverage section expand/collapse
+      window.toggleCoverageSection = function(idx) {
+        const body = document.getElementById('covBody' + idx);
+        const arrow = document.getElementById('covArrow' + idx);
+        if (!body) return;
+        const isOpen = body.classList.contains('open');
+        body.classList.toggle('open');
+        if (arrow) {
+          arrow.classList.toggle('open', !isOpen);
+        }
+      };
+
+      // ============================================================
+      // TAB 3: Topic Popularity
+      // ============================================================
+      function renderPopularity() {
+        const analytics = getAnalytics();
+        const topicViews = analytics ? (analytics.topicViews || {}) : {};
+        const allTopics = getAllTopics();
+        const topicMap = {};
+        allTopics.forEach(t => { topicMap[t.key] = t; });
+
+        // Build sorted list
+        const entries = Object.entries(topicViews)
+          .map(([key, data]) => ({
+            key,
+            name: topicMap[key] ? topicMap[key].name : key,
+            section: topicMap[key] ? topicMap[key].sectionTitle : 'Unknown',
+            count: data.count || 0,
+            lastViewed: data.lastViewed
+          }))
+          .filter(e => e.count > 0)
+          .sort((a, b) => b.count - a.count);
+
+        if (entries.length === 0) {
+          tabContent.innerHTML = `
+            <div class="empty-state">
+              <div class="empty-icon">&#128202;</div>
+              <p>No analytics data yet.</p>
+              <p style="font-size: 13px; margin-top: 8px;">Visit topics on the main site to start tracking views.</p>
+            </div>
+          `;
+          return;
+        }
+
+        const maxCount = entries[0].count;
+
+        let rows = '';
+        entries.forEach((e, i) => {
+          const barWidth = maxCount > 0 ? Math.max(2, (e.count / maxCount) * 100) : 0;
+          rows += `
+            <tr>
+              <td>${i + 1}</td>
+              <td>${esc(e.name)}</td>
+              <td>${esc(e.section)}</td>
+              <td><strong>${e.count}</strong></td>
+              <td class="bar-cell"><div class="view-bar" style="width:${barWidth}%"></div></td>
+              <td>${formatDate(e.lastViewed)}</td>
+            </tr>
+          `;
+        });
+
+        tabContent.innerHTML = `
+          <div class="admin-section">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+              <h3 style="margin-bottom: 0;">Topic Popularity (${entries.length} viewed)</h3>
+              <button class="btn-admin btn-accent" onclick="exportPopularityCSV()">Export CSV</button>
+            </div>
+            <div style="overflow-x: auto;">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Topic</th>
+                    <th>Section</th>
+                    <th>Views</th>
+                    <th>Chart</th>
+                    <th>Last Viewed</th>
+                  </tr>
+                </thead>
+                <tbody>${rows}</tbody>
+              </table>
+            </div>
+          </div>
+        `;
+      }
+
+      // Export CSV
+      window.exportPopularityCSV = function() {
+        const analytics = getAnalytics();
+        const topicViews = analytics ? (analytics.topicViews || {}) : {};
+        const allTopics = getAllTopics();
+        const topicMap = {};
+        allTopics.forEach(t => { topicMap[t.key] = t; });
+
+        const entries = Object.entries(topicViews)
+          .map(([key, data]) => ({
+            key,
+            name: topicMap[key] ? topicMap[key].name : key,
+            section: topicMap[key] ? topicMap[key].sectionTitle : 'Unknown',
+            count: data.count || 0,
+            lastViewed: data.lastViewed || ''
+          }))
+          .sort((a, b) => b.count - a.count);
+
+        let csv = 'Rank,Topic,Section,Views,Last Viewed\n';
+        entries.forEach((e, i) => {
+          csv += `${i + 1},"${e.name}","${e.section}",${e.count},"${e.lastViewed}"\n`;
+        });
+
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'aidocs-topic-popularity.csv';
+        a.click();
+        URL.revokeObjectURL(url);
+      };
+
+      // ============================================================
+      // TAB 4: Search Analytics
+      // ============================================================
+      function renderSearchAnalytics() {
+        const analytics = getAnalytics();
+        const searches = analytics ? (analytics.searches || { terms: {}, noResults: {} }) : { terms: {}, noResults: {} };
+        const terms = searches.terms || {};
+        const noResults = searches.noResults || {};
+
+        const totalUniqueTerms = Object.keys(terms).length + Object.keys(noResults).length;
+        const totalSearches = Object.values(terms).reduce((s, v) => s + (v.count || 0), 0)
+          + Object.values(noResults).reduce((s, v) => s + (v.count || 0), 0);
+        const noResultsCount = Object.values(noResults).reduce((s, v) => s + (v.count || 0), 0);
+        const noResultsPct = totalSearches > 0 ? ((noResultsCount / totalSearches) * 100).toFixed(1) : 0;
+
+        if (totalUniqueTerms === 0) {
+          tabContent.innerHTML = `
+            <div class="empty-state">
+              <div class="empty-icon">&#128269;</div>
+              <p>No search data yet.</p>
+              <p style="font-size: 13px; margin-top: 8px;">Search data will appear as users search on the main site.</p>
+            </div>
+          `;
+          return;
+        }
+
+        // Successful searches table
+        const termEntries = Object.entries(terms)
+          .map(([term, data]) => ({ term, count: data.count, lastSearched: data.lastSearched }))
+          .sort((a, b) => b.count - a.count);
+
+        let termRows = '';
+        termEntries.forEach(e => {
+          termRows += `
+            <tr>
+              <td>${esc(e.term)}</td>
+              <td><strong>${e.count}</strong></td>
+              <td>${formatDate(e.lastSearched)}</td>
+            </tr>
+          `;
+        });
+
+        // No results table
+        const noResEntries = Object.entries(noResults)
+          .map(([term, data]) => ({ term, count: data.count, lastSearched: data.lastSearched }))
+          .sort((a, b) => b.count - a.count);
+
+        let noResRows = '';
+        noResEntries.forEach(e => {
+          noResRows += `
+            <tr>
+              <td>${esc(e.term)}</td>
+              <td><strong>${e.count}</strong></td>
+              <td>${formatDate(e.lastSearched)}</td>
+            </tr>
+          `;
+        });
+
+        tabContent.innerHTML = `
+          <div class="stat-grid" style="margin-bottom: 20px;">
+            <div class="stat-card">
+              <div class="stat-number">${totalUniqueTerms}</div>
+              <div class="stat-label">Unique Search Terms</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">${totalSearches}</div>
+              <div class="stat-label">Total Searches</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">${noResultsPct}%</div>
+              <div class="stat-label">No Results Rate</div>
+            </div>
+          </div>
+
+          ${termEntries.length > 0 ? `
+          <div class="admin-section">
+            <h3>Most Searched Terms</h3>
+            <div style="overflow-x: auto;">
+              <table class="admin-table">
+                <thead>
+                  <tr><th>Term</th><th>Count</th><th>Last Searched</th></tr>
+                </thead>
+                <tbody>${termRows}</tbody>
+              </table>
+            </div>
+          </div>
+          ` : ''}
+
+          ${noResEntries.length > 0 ? `
+          <div class="admin-section">
+            <h3>Failed Searches (No Results)</h3>
+            <div class="admin-alert warning" style="margin-bottom: 12px;">
+              These search terms returned no results. Consider adding content for these topics.
+            </div>
+            <div style="overflow-x: auto;">
+              <table class="admin-table">
+                <thead>
+                  <tr><th>Term</th><th>Count</th><th>Last Searched</th></tr>
+                </thead>
+                <tbody>${noResRows}</tbody>
+              </table>
+            </div>
+          </div>
+          ` : ''}
+
+          <div style="margin-top: 16px; text-align: right;">
+            <button class="btn-admin btn-danger" onclick="clearSearchData()">Clear Search Data</button>
+          </div>
+        `;
+      }
+
+      window.clearSearchData = function() {
+        if (!confirm('Are you sure you want to clear all search analytics data?')) return;
+        try {
+          const raw = localStorage.getItem(ANALYTICS_KEY);
+          if (raw) {
+            const data = JSON.parse(raw);
+            data.searches = { terms: {}, noResults: {} };
+            data.lastUpdated = new Date().toISOString();
+            localStorage.setItem(ANALYTICS_KEY, JSON.stringify(data));
+          }
+        } catch (e) { /* ignore */ }
+        renderSearchAnalytics();
+      };
+
+      // ============================================================
+      // TAB 5: SEO Health
+      // ============================================================
+      async function renderSEOHealth() {
+        tabContent.innerHTML = '<div class="loading-spinner">Running SEO checks...</div>';
+
+        const checks = [];
+        const allTopics = getAllTopics();
+
+        // Check 1: Section keywords in app.js
+        if (docStructure && seoSectionKeywords) {
+          const sectionsWithKw = docStructure.filter(s => seoSectionKeywords[s.id]);
+          const total = docStructure.length;
+          const covered = sectionsWithKw.length;
+          if (covered === total) {
+            checks.push({ status: 'pass', label: 'Section Keywords', detail: `All ${total} sections have SEO keywords defined` });
+          } else {
+            const missing = docStructure.filter(s => !seoSectionKeywords[s.id]).map(s => s.title).join(', ');
+            checks.push({ status: 'fail', label: 'Section Keywords', detail: `${covered}/${total} sections have keywords. Missing: ${missing}` });
+          }
+        } else {
+          checks.push({ status: 'warn', label: 'Section Keywords', detail: 'Could not verify sectionKeywords from app.js' });
+        }
+
+        // Check 2: Content coverage
+        const contentCount = Object.keys(window.AI_DOCS || {}).length;
+        const topicCount = allTopics.length;
+        const contentPct = topicCount > 0 ? Math.round((contentCount / topicCount) * 100) : 0;
+        if (contentPct >= 80) {
+          checks.push({ status: 'pass', label: 'Content Coverage', detail: `${contentCount}/${topicCount} topics have content (${contentPct}%)` });
+        } else if (contentPct >= 50) {
+          checks.push({ status: 'warn', label: 'Content Coverage', detail: `${contentCount}/${topicCount} topics have content (${contentPct}%). Aim for 80%+.` });
+        } else {
+          checks.push({ status: 'fail', label: 'Content Coverage', detail: `Only ${contentCount}/${topicCount} topics have content (${contentPct}%). Needs improvement.` });
+        }
+
+        // Check 3: sitemap.xml
+        try {
+          const sitemapResp = await fetch('sitemap.xml');
+          if (sitemapResp.ok) {
+            const sitemapText = await sitemapResp.text();
+            const locCount = (sitemapText.match(/<loc>/g) || []).length;
+            if (locCount >= topicCount) {
+              checks.push({ status: 'pass', label: 'Sitemap', detail: `sitemap.xml has ${locCount} URLs (${topicCount} topics)` });
+            } else {
+              checks.push({ status: 'warn', label: 'Sitemap', detail: `sitemap.xml has ${locCount} URLs but there are ${topicCount} topics` });
+            }
+          } else {
+            checks.push({ status: 'fail', label: 'Sitemap', detail: 'sitemap.xml not found (HTTP ' + sitemapResp.status + ')' });
+          }
+        } catch {
+          checks.push({ status: 'fail', label: 'Sitemap', detail: 'Could not fetch sitemap.xml' });
+        }
+
+        // Check 4: robots.txt
+        try {
+          const robotsResp = await fetch('robots.txt');
+          if (robotsResp.ok) {
+            const robotsText = await robotsResp.text();
+            if (robotsText.toLowerCase().includes('sitemap')) {
+              checks.push({ status: 'pass', label: 'robots.txt', detail: 'robots.txt exists and references sitemap' });
+            } else {
+              checks.push({ status: 'warn', label: 'robots.txt', detail: 'robots.txt exists but does not reference sitemap URL' });
+            }
+          } else {
+            checks.push({ status: 'fail', label: 'robots.txt', detail: 'robots.txt not found' });
+          }
+        } catch {
+          checks.push({ status: 'fail', label: 'robots.txt', detail: 'Could not fetch robots.txt' });
+        }
+
+        // Check 5: Canonical URL in index.html
+        try {
+          const indexResp = await fetch('index.html');
+          if (indexResp.ok) {
+            const indexText = await indexResp.text();
+            const canonMatch = indexText.match(/id="canonicalLink"\s+href="([^"]*)"/);
+            if (canonMatch && canonMatch[1] && canonMatch[1].trim().length > 0) {
+              checks.push({ status: 'pass', label: 'Canonical URL', detail: 'Canonical URL is set in index.html' });
+            } else {
+              checks.push({ status: 'warn', label: 'Canonical URL', detail: 'Canonical URL in index.html is empty (set dynamically via JS)' });
+            }
+          } else {
+            checks.push({ status: 'fail', label: 'Canonical URL', detail: 'Could not fetch index.html' });
+          }
+        } catch {
+          checks.push({ status: 'fail', label: 'Canonical URL', detail: 'Could not fetch index.html' });
+        }
+
+        // Check 6: Meta description
+        if (appJsText && appJsText.includes('meta[name="description"]')) {
+          checks.push({ status: 'pass', label: 'Dynamic Meta Tags', detail: 'app.js dynamically updates meta description, OG tags, and JSON-LD' });
+        } else {
+          checks.push({ status: 'warn', label: 'Dynamic Meta Tags', detail: 'Could not verify dynamic meta tag updates' });
+        }
+
+        // Render
+        const passCount = checks.filter(c => c.status === 'pass').length;
+        const totalChecks = checks.length;
+
+        let checklistHTML = '';
+        checks.forEach(c => {
+          let icon, badge;
+          if (c.status === 'pass') { icon = '&#9989;'; badge = '<span class="badge-pass">PASS</span>'; }
+          else if (c.status === 'fail') { icon = '&#10060;'; badge = '<span class="badge-fail">FAIL</span>'; }
+          else { icon = '&#9888;&#65039;'; badge = '<span class="badge-warn">WARNING</span>'; }
+
+          checklistHTML += `
+            <div class="checklist-item">
+              <span class="check-icon">${icon}</span>
+              <span class="check-label">
+                <div><strong>${esc(c.label)}</strong> ${badge}</div>
+                <div class="check-detail">${esc(c.detail)}</div>
+              </span>
+            </div>
+          `;
+        });
+
+        tabContent.innerHTML = `
+          <div class="score-display">
+            <div class="score-number">${passCount}/${totalChecks}</div>
+            <div class="score-label">SEO Checks Passed</div>
+          </div>
+          <div class="admin-section">
+            <h3>SEO Health Checklist</h3>
+            ${checklistHTML}
+          </div>
+        `;
+      }
+
+      // ============================================================
+      // TAB 6: AdSense Readiness
+      // ============================================================
+      async function renderAdSense() {
+        tabContent.innerHTML = '<div class="loading-spinner">Checking AdSense readiness...</div>';
+
+        const allTopics = getAllTopics();
+        const checks = [];
+        let passCount = 0;
+
+        // Check 1: Content quantity (30+ unique pages)
+        const contentKeys = Object.keys(window.AI_DOCS || {});
+        if (contentKeys.length >= 30) {
+          checks.push({ status: 'pass', label: 'Content Quantity', detail: `${contentKeys.length} topics with content (requirement: 30+)` });
+          passCount++;
+        } else {
+          checks.push({ status: 'fail', label: 'Content Quantity', detail: `Only ${contentKeys.length} topics with content (need 30+)` });
+        }
+
+        // Check 2: Content quality (topics with 300+ words)
+        const topicWordCounts = [];
+        contentKeys.forEach(key => {
+          const wc = getWordCount(window.AI_DOCS[key]);
+          const topic = allTopics.find(t => t.key === key);
+          topicWordCounts.push({
+            key,
+            name: topic ? topic.name : key,
+            section: topic ? topic.sectionTitle : 'Unknown',
+            wordCount: wc,
+            flagged: wc < 300
+          });
+        });
+        topicWordCounts.sort((a, b) => a.wordCount - b.wordCount);
+
+        const flaggedCount = topicWordCounts.filter(t => t.flagged).length;
+        if (flaggedCount === 0 && contentKeys.length > 0) {
+          checks.push({ status: 'pass', label: 'Content Quality', detail: `All ${contentKeys.length} topics have 300+ words` });
+          passCount++;
+        } else if (flaggedCount > 0) {
+          checks.push({ status: 'warn', label: 'Content Quality', detail: `${flaggedCount} topics have fewer than 300 words` });
+        } else {
+          checks.push({ status: 'fail', label: 'Content Quality', detail: 'No content available to evaluate' });
+        }
+
+        // Check 3: Mobile responsive (hardcoded PASS)
+        checks.push({ status: 'pass', label: 'Mobile Responsive', detail: 'Site uses responsive CSS media queries and mobile header' });
+        passCount++;
+
+        // Check 4: Structured navigation (hardcoded PASS)
+        checks.push({ status: 'pass', label: 'Structured Navigation', detail: 'Sidebar with sections, subsections, and topic hierarchy' });
+        passCount++;
+
+        // Check 5: HTTPS
+        if (location.protocol === 'https:') {
+          checks.push({ status: 'pass', label: 'HTTPS', detail: 'Site is served over HTTPS' });
+          passCount++;
+        } else {
+          checks.push({ status: 'warn', label: 'HTTPS', detail: `Currently using ${location.protocol} - HTTPS required for AdSense` });
+        }
+
+        // Check 6: Privacy Policy page
+        try {
+          const privResp = await fetch('privacy.html', { method: 'HEAD' });
+          if (privResp.ok) {
+            checks.push({ status: 'pass', label: 'Privacy Policy', detail: 'privacy.html exists and is accessible' });
+            passCount++;
+          } else {
+            checks.push({ status: 'fail', label: 'Privacy Policy', detail: 'privacy.html not found (HTTP ' + privResp.status + ')' });
+          }
+        } catch {
+          checks.push({ status: 'fail', label: 'Privacy Policy', detail: 'Could not reach privacy.html' });
+        }
+
+        // Check 7: Contact page
+        try {
+          const contactResp = await fetch('contact.html', { method: 'HEAD' });
+          if (contactResp.ok) {
+            checks.push({ status: 'pass', label: 'Contact Page', detail: 'contact.html exists and is accessible' });
+            passCount++;
+          } else {
+            checks.push({ status: 'fail', label: 'Contact Page', detail: 'contact.html not found (HTTP ' + contactResp.status + ')' });
+          }
+        } catch {
+          checks.push({ status: 'fail', label: 'Contact Page', detail: 'Could not reach contact.html' });
+        }
+
+        const totalChecks = checks.length;
+
+        // Build checklist HTML
+        let checklistHTML = '';
+        checks.forEach(c => {
+          let icon, badge;
+          if (c.status === 'pass') { icon = '&#9989;'; badge = '<span class="badge-pass">PASS</span>'; }
+          else if (c.status === 'fail') { icon = '&#10060;'; badge = '<span class="badge-fail">FAIL</span>'; }
+          else { icon = '&#9888;&#65039;'; badge = '<span class="badge-warn">WARNING</span>'; }
+
+          checklistHTML += `
+            <div class="checklist-item">
+              <span class="check-icon">${icon}</span>
+              <span class="check-label">
+                <div><strong>${esc(c.label)}</strong> ${badge}</div>
+                <div class="check-detail">${esc(c.detail)}</div>
+              </span>
+            </div>
+          `;
+        });
+
+        // Build word count table
+        let wcRows = '';
+        topicWordCounts.forEach(t => {
+          wcRows += `
+            <tr>
+              <td>${esc(t.name)}</td>
+              <td>${esc(t.section)}</td>
+              <td>${t.wordCount.toLocaleString()}</td>
+              <td>${t.flagged
+                ? '<span class="wc-flag low">&lt; 300 words</span>'
+                : '<span class="wc-flag ok">OK</span>'
+              }</td>
+            </tr>
+          `;
+        });
+
+        tabContent.innerHTML = `
+          <div class="score-display">
+            <div class="score-number">${passCount}/${totalChecks}</div>
+            <div class="score-label">AdSense Readiness Checks Passed</div>
+          </div>
+
+          <div class="admin-section">
+            <h3>Readiness Checklist</h3>
+            ${checklistHTML}
+          </div>
+
+          ${topicWordCounts.length > 0 ? `
+          <div class="admin-section">
+            <h3>Content Word Counts (sorted ascending)</h3>
+            ${flaggedCount > 0 ? `
+              <div class="admin-alert warning">
+                ${flaggedCount} topic${flaggedCount !== 1 ? 's' : ''} flagged with fewer than 300 words.
+                AdSense prefers pages with substantial, original content.
+              </div>
+            ` : `
+              <div class="admin-alert success">
+                All topics meet the 300-word minimum threshold.
+              </div>
+            `}
+            <div style="overflow-x: auto; max-height: 500px; overflow-y: auto;">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Topic</th>
+                    <th>Section</th>
+                    <th>Words</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>${wcRows}</tbody>
+              </table>
+            </div>
+          </div>
+          ` : ''}
+        `;
+      }
+
+      // ============================================================
+      // Initialization
+      // ============================================================
+      initTheme();
+
+      if (isAuthenticated()) {
+        showDashboard();
+      } else {
+        loginScreen.style.display = 'flex';
+        dashboard.style.display = 'none';
+        passwordInput.focus();
+      }
+
+    })();
+    </script>
+  </body>
+</html>

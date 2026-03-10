@@ -12,7 +12,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const BASE_URL = process.argv[2] || "https://ai-devdocs.example.com/";
+const BASE_URL = process.argv[2] || "https://149189.github.io/AI-devdocs/";
 const appFile = path.join(__dirname, "app.js");
 const outFile = path.join(__dirname, "sitemap.xml");
 

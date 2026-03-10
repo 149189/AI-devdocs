@@ -601,3 +601,40 @@ body {
   .markdown-body h1 { font-size: 24px; }
   .markdown-body h2 { font-size: 20px; }
 }
+
+/* ========== Ad Slots (hidden until AdSense activated) ========== */
+.ad-slot {
+  display: none;
+  text-align: center;
+  padding: 10px 0;
+  margin: 16px 0;
+  min-height: 90px;
+  background: var(--bg-secondary);
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+}
+.ad-slot.active {
+  display: block;
+}
+
+/* ========== Footer ========== */
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 8px 20px;
+  font-size: 12px;
+  z-index: 50;
+}
+.footer-links {
+  display: flex;
+  gap: 16px;
+}
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: var(--accent);
+}
