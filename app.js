@@ -1,5 +1,5 @@
 // ============================================================
-// AI DevDocs - Main Application Logic
+// AIfor1 - Main Application Logic
 // ============================================================
 
 // Global content store - initialized in index.html <head> before content scripts
@@ -9,8 +9,8 @@ window.AI_DOCS = window.AI_DOCS || {};
 // ---- SEO Helper Module ----
 const SEO = {
   // Base info
-  siteName: "AI DevDocs",
-  baseTitle: "AI DevDocs - Complete AI Knowledge Base",
+  siteName: "AIfor1",
+  baseTitle: "AIfor1 - Complete AI Knowledge Base",
   baseDesc: "Comprehensive encyclopedia covering 179+ AI topics: ML, Deep Learning, GenAI, LangChain, Frameworks, and more.",
   baseUrl: location.origin + location.pathname,
 
@@ -35,8 +35,8 @@ const SEO = {
 
   // Update all SEO meta tags for a given topic
   updateForTopic(topicName, sectionTitle, sectionId, subTitle, topicKey) {
-    const title = `${topicName} - ${sectionTitle} | AI DevDocs`;
-    const desc = `Learn about ${topicName} in ${sectionTitle}. Part of AI DevDocs comprehensive encyclopedia covering AI, ML, Deep Learning, GenAI, and 179+ topics.`;
+    const title = `${topicName} - ${sectionTitle} | AIfor1`;
+    const desc = `Learn about ${topicName} in ${sectionTitle}. Part of AIfor1 comprehensive encyclopedia covering AI, ML, Deep Learning, GenAI, and 179+ topics.`;
     const url = this.baseUrl + "#" + topicKey;
     const keywords = this.sectionKeywords[sectionId] || "";
 
@@ -69,23 +69,23 @@ const SEO = {
       "headline": topicName,
       "description": desc,
       "url": url,
-      "author": { "@type": "Organization", "name": "AI DevDocs" },
-      "publisher": { "@type": "Organization", "name": "AI DevDocs" },
+      "author": { "@type": "Organization", "name": "AIfor1" },
+      "publisher": { "@type": "Organization", "name": "AIfor1" },
       "mainEntityOfPage": { "@type": "WebPage", "@id": url },
       "about": {
         "@type": "Thing",
         "name": sectionTitle,
-        "description": `${sectionTitle} section of AI DevDocs`
+        "description": `${sectionTitle} section of AIfor1`
       },
       "isPartOf": {
         "@type": "WebSite",
-        "name": "AI DevDocs",
+        "name": "AIfor1",
         "url": this.baseUrl
       },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "AI DevDocs", "item": this.baseUrl },
+          { "@type": "ListItem", "position": 1, "name": "AIfor1", "item": this.baseUrl },
           { "@type": "ListItem", "position": 2, "name": sectionTitle, "item": this.baseUrl + "#section-" + sectionId },
           { "@type": "ListItem", "position": 3, "name": subTitle },
           { "@type": "ListItem", "position": 4, "name": topicName, "item": url }
@@ -109,7 +109,7 @@ const SEO = {
     this._updateJsonLd({
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "AI DevDocs",
+      "name": "AIfor1",
       "description": this.baseDesc,
       "url": this.baseUrl
     });
