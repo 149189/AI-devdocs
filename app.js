@@ -2,8 +2,133 @@
 // AI DevDocs - Main Application Logic
 // ============================================================
 
-// Global content store - content files register here
+// Global content store - initialized in index.html <head> before content scripts
+// This line keeps backward compatibility if someone loads app.js standalone
 window.AI_DOCS = window.AI_DOCS || {};
+
+// ---- SEO Helper Module ----
+const SEO = {
+  // Base info
+  siteName: "AI DevDocs",
+  baseTitle: "AI DevDocs - Complete AI Knowledge Base",
+  baseDesc: "Comprehensive encyclopedia covering 179+ AI topics: ML, Deep Learning, GenAI, LangChain, Frameworks, and more.",
+  baseUrl: location.origin + location.pathname,
+
+  // Section-level keywords for automatic SEO enrichment
+  sectionKeywords: {
+    foundations: "linear algebra, probability, optimization, information theory, game theory, AI fundamentals",
+    ml: "supervised learning, unsupervised learning, regression, decision trees, SVM, clustering, ensemble methods",
+    nn: "neural networks, CNN, RNN, LSTM, GRU, backpropagation, activation functions, autoencoders",
+    dl: "deep learning, object detection, image classification, NLP, speech recognition, TTS",
+    transformers: "transformers, LLMs, BERT, GPT, LLaMA, Claude, attention mechanism, fine-tuning, RLHF",
+    genai: "generative AI, GANs, diffusion models, DALL-E, Stable Diffusion, text generation, image synthesis",
+    nlp_adv: "NLP, text summarization, machine translation, question answering, sentiment analysis, dialogue systems",
+    cv: "computer vision, image preprocessing, object tracking, 3D vision, OCR, medical imaging, autonomous driving",
+    rl: "reinforcement learning, Q-learning, policy gradients, DQN, PPO, multi-agent RL, RLHF",
+    frameworks: "TensorFlow, PyTorch, JAX, Keras, scikit-learn, HuggingFace, ONNX, MLflow",
+    langchain: "LangChain, LangGraph, RAG, vector databases, AI agents, function calling, embeddings",
+    languages: "Python, JavaScript, Rust, Julia, R, C++, SQL, Mojo, AI programming",
+    mlops: "MLOps, GPU, TPU, model serving, Docker, Kubernetes, distributed training, edge AI, cloud AI",
+    ethics: "AI ethics, bias, fairness, explainability, AI safety, data privacy, GDPR, responsible AI",
+    emerging: "quantum ML, neuromorphic computing, foundation models, multimodal AI, AGI, robotics, brain-computer interface",
+  },
+
+  // Update all SEO meta tags for a given topic
+  updateForTopic(topicName, sectionTitle, sectionId, subTitle, topicKey) {
+    const title = `${topicName} - ${sectionTitle} | AI DevDocs`;
+    const desc = `Learn about ${topicName} in ${sectionTitle}. Part of AI DevDocs comprehensive encyclopedia covering AI, ML, Deep Learning, GenAI, and 179+ topics.`;
+    const url = this.baseUrl + "#" + topicKey;
+    const keywords = this.sectionKeywords[sectionId] || "";
+
+    // <title>
+    document.title = title;
+
+    // meta description
+    this._setMeta("description", desc);
+
+    // meta keywords (section-specific + topic name)
+    this._setMeta("keywords", `${topicName}, ${sectionTitle}, ${subTitle}, ${keywords}, AI, machine learning, deep learning`);
+
+    // canonical
+    const canonical = document.getElementById("canonicalLink");
+    if (canonical) canonical.href = url;
+
+    // Open Graph
+    this._setMetaProperty("ogTitle", title);
+    this._setMetaProperty("ogDescription", desc);
+    this._setMetaProperty("ogUrl", url);
+
+    // Twitter
+    this._setMetaProperty("twTitle", title);
+    this._setMetaProperty("twDescription", desc);
+
+    // JSON-LD Structured Data (TechArticle for each topic)
+    this._updateJsonLd({
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": topicName,
+      "description": desc,
+      "url": url,
+      "author": { "@type": "Organization", "name": "AI DevDocs" },
+      "publisher": { "@type": "Organization", "name": "AI DevDocs" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": url },
+      "about": {
+        "@type": "Thing",
+        "name": sectionTitle,
+        "description": `${sectionTitle} section of AI DevDocs`
+      },
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "AI DevDocs",
+        "url": this.baseUrl
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "AI DevDocs", "item": this.baseUrl },
+          { "@type": "ListItem", "position": 2, "name": sectionTitle, "item": this.baseUrl + "#section-" + sectionId },
+          { "@type": "ListItem", "position": 3, "name": subTitle },
+          { "@type": "ListItem", "position": 4, "name": topicName, "item": url }
+        ]
+      }
+    });
+  },
+
+  // Reset to homepage SEO
+  resetToHome() {
+    document.title = this.baseTitle;
+    this._setMeta("description", this.baseDesc);
+    this._setMeta("keywords", "AI, artificial intelligence, machine learning, deep learning, neural networks, transformers, LLMs, generative AI, LangChain, RAG, NLP, computer vision, reinforcement learning, frameworks, PyTorch, TensorFlow, MLOps");
+    const canonical = document.getElementById("canonicalLink");
+    if (canonical) canonical.href = this.baseUrl;
+    this._setMetaProperty("ogTitle", this.baseTitle);
+    this._setMetaProperty("ogDescription", this.baseDesc);
+    this._setMetaProperty("ogUrl", this.baseUrl);
+    this._setMetaProperty("twTitle", this.baseTitle);
+    this._setMetaProperty("twDescription", this.baseDesc);
+    this._updateJsonLd({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "AI DevDocs",
+      "description": this.baseDesc,
+      "url": this.baseUrl
+    });
+  },
+
+  // Private helpers
+  _setMeta(name, content) {
+    let el = document.querySelector(`meta[name="${name}"]`);
+    if (el) el.content = content;
+  },
+  _setMetaProperty(id, content) {
+    const el = document.getElementById(id);
+    if (el) el.content = content;
+  },
+  _updateJsonLd(data) {
+    const el = document.getElementById("jsonLd");
+    if (el) el.textContent = JSON.stringify(data, null, 2);
+  }
+};
 
 // ---- Topic Structure Definition ----
 const docStructure = [
@@ -606,6 +731,13 @@ function loadTopic(key, section, sub, name) {
     els.container.innerHTML = "";
     els.container.className = "markdown-body";
     els.container.innerHTML = marked.parse(content);
+
+    // Add heading IDs for in-page anchors (SEO + accessibility)
+    els.container.querySelectorAll("h1, h2, h3, h4").forEach((h) => {
+      const id = h.textContent.trim().toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      h.id = id;
+    });
   } else {
     els.container.className = "";
     els.container.innerHTML = `<div class="welcome-screen"><h2>Coming Soon</h2><p>${name} documentation is being prepared.</p></div>`;
@@ -621,6 +753,9 @@ function loadTopic(key, section, sub, name) {
 
   // Update URL hash
   history.replaceState(null, "", "#" + key);
+
+  // Update SEO meta tags for this topic
+  SEO.updateForTopic(name, section.title, section.id, sub.title, key);
 
   // Re-render sidebar for active state
   renderSidebar(els.search.value);
@@ -738,5 +873,6 @@ function renderStats() {
 renderSidebar();
 renderWelcomeGrid();
 renderStats();
+SEO.resetToHome();
 loadFromHash();
 window.addEventListener("hashchange", loadFromHash);
